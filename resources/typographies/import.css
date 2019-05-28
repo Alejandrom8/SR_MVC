@@ -1,0 +1,20 @@
+@font-face {
+    font-family: roboto;
+    src: url(Roboto-Regular.ttf);
+}
+@font-face {
+    font-family: lato;
+    src: url(Lato-Regular.ttf);
+}
+@font-face{
+    font-family:Kaushan;
+    src:url(KaushanScript-Regular.otf);
+}
+@font-face{
+  font-family:Grotesk;
+  src:url(Grotesk.ttf);
+}
+@font-face{
+  font-family:Poppins;
+  src:url(Poppins-Bold.otf);
+}
