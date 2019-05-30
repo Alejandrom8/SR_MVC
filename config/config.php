@@ -4,9 +4,22 @@ date_default_timezone_set("America/Mexico_City");
 
 //url
 define("LOCAL", "http://localhost/");
-define("URL", constant("LOCAL") . "welcome/");
+define("URL", constant("LOCAL") . "SR_MVC/");
 define("URL_FOTOS", constant("LOCAL") . "userData/");
 //base de datos
+define("USER", "root");
+define("PASSWORD", "Alejandrom8");
+define("HOST", "localhost");
+
+    define("prepa_1_charset", "utf8");
+    define("prepa_2_charset", "utf8");
+    define("prepa_3_charset", "utf8");
+    define("prepa_4_charset", "utf8");
+    define("prepa_5_charset", "utf8");
+    define("prepa_6_charset", "utf8");
+    define("prepa_7_charset", "utf8");
+    define("prepa_8_charset", "utf8");
+    define("prepa_9_charset", "utf8");
 
 //rutas
 
