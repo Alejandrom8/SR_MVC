@@ -10,8 +10,9 @@ body{
 .webpage{
   width:100%;
   overflow:hidden;
-  height:100vh;
+  height:110vh;
   z-index:10;
+  padding:0;
 }
 @media only screen and (max-width: 769px){
   .webpage{
@@ -35,11 +36,13 @@ body{
 .jumbotron{
     background:none;
     padding:1%;
-	  padding-top:0;
+    padding-top:0;
+    font-family: 'roboto';
 }
 .jumbotron.labelJum{
   animation-duration: 2s;
   animation-name: AID;
+  font-family: 'roboto';
 }
 .jumbotron.headJum{
   justify-content:space-around;
@@ -66,9 +69,6 @@ body{
     width:99.9%;
     height:100%;
     color:#fff;
-}
-#rightForm{
-    /*box-shadow: 20px 2px 20px#222;*/
 }
 .cont-logoCel{
 	width:100%;
@@ -132,7 +132,7 @@ body{
     /*box-shadow: 20px 2px 20px#222;*/
 }
 .contenido h1{
-    font-family:Helvetica;
+    font-family:roboto;
     font-size:3em;
     font-weight:bold;
 }
@@ -187,21 +187,16 @@ body{
 .form .form-group input,select{
   background-color:transparent;
   border:0;
-  color:#fff;
   border-bottom:2px solid #fff;
   box-shadow: none;
 }
 .form .form-group input:hover{
   background-color:#fff;
-  color:#222;
 }
 @media only screen and (max-width: 1024px){
 	.cont-logoCel{
 		height:20%;
 	}
-  .col-sm-8{
-    height:115%;
-  }
   .contenido h1{
     font-size: 2.6em;
   }
@@ -220,9 +215,6 @@ body{
 	.left{
 		padding-top:0;
 /*		height:140%;*/
-	}
-	.col-sm-8{
-		display:block;
 	}
 	.contenido{
 		margin-top:10%;
@@ -251,11 +243,6 @@ body{
     .cont-logoCel{
         height:25%;
         text-shadow: 4px 7px 6px #222;
-    }
-}
-@media only screen and (max-width: 1050px){
-    .contenido .col-sm-4{
-        display:none;
     }
 }
 @media only screen and (max-width: 300px){
@@ -419,7 +406,6 @@ body{
   text-align: center;
   border-radius: 50% dashed black;
   transition: all .5s;
-
 }
 @media only screen and (max-width: 800px){
 	#cerrar-modalI + label {
@@ -468,6 +454,7 @@ a label:hover{
 .select{
   float:left;
   width:75%;
+  height:80px;
   margin-top:5%;
   margin-left:15%;
   margin-right:15%;
@@ -477,8 +464,10 @@ a label:hover{
 .select .btn{
   font-size:1.5em;
 }
-.form-pa .FR input{
+.form-pa .FR input[type="text"], .form-pa .FR input[type="password"]{
   letter-spacing: 5;
+  background-color:rgba(255,255,255,0.8);
+  color:#333;
 }
 .planteles select{
   background-color:transparent;
@@ -510,9 +499,6 @@ a label:hover{
   /* padding-bottom:5%; */
 }
 @media screen and (max-width: 700px){
-  .ljhi{
-    display:none;
-  }
   .left{
     height:100vh;
     border-top:30px solid #333;
@@ -635,7 +621,7 @@ height:100%;
 z-index:2;
 }
 #seleccionar_plantel{
-position:absolute;
+position:fixed;
 float:left;
 top:0;
 left:0;
@@ -654,4 +640,38 @@ height:35%;
 background-color:#fff;
 margin:0 auto;
 padding:4%;
+}
+#displayName p{
+  text-align:center;
+  font-family:"Sans serif";
+  font-weight:bold;
+  font-size:2rem;
+  line-height:2rem;
+}
+#displayName a{
+  font-size:16px;
+  cursor:pointer;
+  /* border:1px solid #428bca; */
+  padding:4px;
+}
+#displayName a:hover{
+  background-color:#ddd;
+}
+
+#designedBy{
+  display:flex;
+  width:100%;
+  height:10vh;
+  bottom:0;
+  background: #333;
+  color:#666;
+  text-align:center;
+  justify-content: space-around;
+  align-items:center;
+  align-content:center;
+}
+
+#designedBy p{
+  margin:0 auto;
+  float:left;
 }

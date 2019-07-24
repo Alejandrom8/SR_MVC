@@ -1,21 +1,44 @@
 {
-    "estado": "mantenimiento",
-    "dominio" : "http://localhost/",
-    "url" : "http://localhost/welcome/",
-    "fechas": {
-        "fecha de apertura": {
-            "dia": 29, 
-            "mes": 12,
-            "año": 2019
+    "local": "http://localhost/",
+    "url": "http://localhost/SR_MVC/",
+    "fotosURL": "http://localhost/userData/",
+    "database": {
+        "user": "root",
+        "password": "Alejandrom8",
+        "host": "localhost"
+    },
+    "quantities": {
+        "studPerTeacher": 20,
+        "photoSize": 50000000,
+        "daysBeforeWarning": 5
+    },
+    "dates": {
+        "startDate": {
+            "day": 29,
+            "month": 12,
+            "year": 19
         },
-        "fecha de cierre": {
-            "dia": 29, 
-            "mes": 12,
-            "año": 2019
+        "endDate": {
+            "day": 29,
+            "month": 6,
+            "year": 19
         }
     },
-    "limites": {
-        "max_alumnos_por_maestro": 20,
-        "max_tamaño_foto": 50000000
+    "campus": {
+        "registredCampus": [2, 6, 8],
+        "logo": {
+            "p2": {
+                "width": 17,
+                "height": 4
+            },
+            "p6": {
+                "width": 20,
+                "height": 15
+            },
+            "p8": {
+                "width": 20,
+                "height": 15
+            }
+        }
     }
 }

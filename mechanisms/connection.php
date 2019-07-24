@@ -5,21 +5,23 @@ class Connection {
     private $user;
     private $password;
     private $host;
-    private $dataBase;
-    private $charset;
+    public $dataBase;
+    public $charset;
+    public $neutral;
 
-    public function __construct($db, $ch){
+    public function __construct($dataBase, $charset){
         $this->user = constant("USER");
         $this->password = constant("PASSWORD");
         $this->host = constant("HOST");
-        $this->dataBase = $db;
-        $this->charset = $ch;
+        $this->dataBase = $dataBase;
+        $this->charset = $charset;
+        $this->neutral = 'neutralConnection';
     }
 
     public function alfa(){
         try{
             
-            $conection = "mysql:host=" . $this->host . ";dbname=neutralConnection;charset=" . $this->charset;
+            $conection = "mysql:host=" . $this->host . ";dbname=" . $this->neutral . ";charset=" . $this->charset;
             $options = [
               PDO::ATTR_ERRMODE             => PDO::ERRMODE_EXCEPTION,
               PDO::ATTR_EMULATE_PREPARES    => false,
@@ -28,16 +30,14 @@ class Connection {
             $pdo = new PDO($conection, $this->user, $this->password, $options);
     
         }catch(PDOException $e){
-
-          print("<script>window.alert('Error de conexion alfa: " . $e->getMessage() . "');</script>");
-          $pdo = new ManageError();
-        
+          $pdo = new ManageError($e);
         }finally{
             return $pdo;
         }
     }
 
     public function beta(){
+      if(isset($this->dataBase)){
         try{
             
             $conection = "mysql:host=" . $this->host . ";dbname=" . $this->dataBase . ";charset=" . $this->charset;
@@ -49,13 +49,11 @@ class Connection {
             $pdo = new PDO($conection, $this->user, $this->password, $options);
     
         }catch(PDOException $e){
-
-          print("<script>window.alert('Error de conexion beta: " . $e->getMessage() . "');</script>");
-          $pdo = new ManageError();
-        
+          $pdo = new ManageError($e);
         }finally{
             return $pdo;
         }
+      }
     }
 }
 

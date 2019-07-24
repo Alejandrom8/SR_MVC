@@ -22,7 +22,7 @@ class App{
     $this->school = $_SESSION['school'];
     $this->url    = isset($_GET['url']) ? $_GET['url'] : null;
     $permitedSections = ['salir', 'login', 'registro', 'welcome'];
-
+    
     $u = rtrim($this->url, '/');
     $u = explode('/', $u);
     $clase = $u[0];
@@ -39,7 +39,7 @@ class App{
           $page->loadModel($clase);
           
           $numberOfParameters = sizeof($u);
-
+          
           if($numberOfParameters > 1){
             if(method_exists($page, $u[1])){
               if($numberOfParameters > 2){

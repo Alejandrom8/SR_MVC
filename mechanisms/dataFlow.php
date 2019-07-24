@@ -37,7 +37,12 @@ class ServiceResult {
     public $messages;
     public $data;
     public $onSuccessEvent;
-    public $onErrorEvent; 
+    public $onErrorEvent;
+    
+    public function __construct(){
+        $this->data = null;
+        $this->success = false;
+    }
 } 
 
 ?>

@@ -1,5 +1,4 @@
-<?php 
-
+<?php
 class View {
     public function __construct(){
 
@@ -8,5 +7,4 @@ class View {
         require_once('structure/views/' . $file . '.php');
     }
 }
-
 ?>

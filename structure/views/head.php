@@ -13,10 +13,11 @@
 <meta name="keyword" content="enp8" />
 <meta name="keyword" content="ciencias experimentales" />
 
-<link rel="stylesheet" type="text/css" href="<?php echo constant("URL");?>resources/frameworks/bootstrap.min.css">
-<link rel="shortcut icon" type="image/png" href="<?php echo constant("URL");?>resources/images/p8/logo.png">
+<link rel="stylesheet" type="text/css" href="<?= $config->url ?>resources/frameworks/bootstrap.min.css">
+<link rel="shortcut icon" type="image/png" href="<?= $config->url ?>resources/images/jovenesblanco.png">
 
-<script src="<?php echo constant("URL");?>resources/frameworks/jquery-3.3.1.min.js"></script>
-<script src="<?php echo constant("URL");?>resources/frameworks/queryLoading2.min.js"></script>
-<script src="<?php echo constant("URL");?>resources/frameworks/Loader.js"></script>
-<script src="<?php echo constant("URL");?>resources/frameworks/sweetalert/dist/sweetalert.min.js"></script>
+<script src="<?= $config->url ?>config/config.js"></script>
+<script src="<?= $config->url ?>resources/frameworks/jquery-3.3.1.min.js"></script>
+<script src="<?= $config->url ?>resources/frameworks/queryLoading2.min.js"></script>
+<script src="<?= $config->url ?>resources/frameworks/Loader.js"></script>
+<script src="<?= $config->url ?>resources/frameworks/sweetalert/dist/sweetalert.min.js"></script>

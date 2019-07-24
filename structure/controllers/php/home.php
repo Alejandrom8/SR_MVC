@@ -1,13 +1,11 @@
 <?php 
 
-class Welcome extends Controller{
-    
+class Home extends Controller{
     public function __construct(){
         parent::__construct();
     }
-
     public function render(){
-        $this->view->render("welcome/index");
+        $this->view->render("home/index");
     }
 }
 

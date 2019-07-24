@@ -22,7 +22,7 @@ class Controller{
         * @param String,int,boolean,etc. $data dato al que se le quitaran caractres especiales
         * @return $data dato sin caracteres especiales.
         */
-        $data = preg_replace('([^A-Za-z0-9._@-])', '', $data);
+        // $data = preg_replace('([^A-Za-z0-9._@-])', '', $data);
         $data = stripslashes($data);
         $data = htmlspecialchars($data);
         return $data;
