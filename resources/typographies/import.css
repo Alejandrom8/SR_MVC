@@ -18,3 +18,11 @@
   font-family:Poppins;
   src:url(Poppins-Bold.otf);
 }
+@font-face{
+  src:url(../typographies/openSans/OpenSans-Regular.ttf);
+  font-family: "opensans";
+}
+@font-face{
+  src:url(../typographies/openSans/OpenSans-Bold.ttf);
+  font-family: "opensans bold";
+}

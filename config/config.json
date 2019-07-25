@@ -1,11 +1,16 @@
 {
-    "local": "http://localhost/",
-    "url": "http://localhost/SR_MVC/",
-    "fotosURL": "http://localhost/userData/",
+    "local": "http://192.168.1.16/",
+    "url": "http://192.168.1.16/SR_MVC/",
+    "fotosURL": "http://192.168.1.16/userData/",
     "database": {
         "user": "root",
         "password": "Alejandrom8",
-        "host": "localhost"
+        "host": "localhost",
+        "charset": {
+            "prepa_2_charset": "utf8",
+            "prepa_6_charset": "utf8",
+            "prepa_8_charset": "utf8"
+        }
     },
     "quantities": {
         "studPerTeacher": 20,
@@ -25,7 +30,20 @@
         }
     },
     "campus": {
-        "registredCampus": [2, 6, 8],
+        "registredCampus": {
+            "p2":{
+                "plantel":2,
+                "nombre": "ERASMO CASTELLANOS QUINTO"
+            },
+            "p6":{
+                "plantel":6,
+                "nombre": "ANTONIO CASO"
+            },
+            "p8":{
+                "plantel":8,
+                "nombre": "MIGUEL E. SCHULZ"
+            }
+        },
         "logo": {
             "p2": {
                 "width": 17,

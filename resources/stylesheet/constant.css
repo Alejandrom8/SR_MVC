@@ -1,0 +1,14 @@
+@import '../typographies/import.css';
+:root{
+    --blue-unam: #193455;
+    --green-cool: #036635;
+    --yellow-design: #ffde0b;
+}
+*{
+    margin:0;
+    padding:0;
+}
+.webpage{
+  width:100%;
+  font-family:opensans;
+}

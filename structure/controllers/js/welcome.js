@@ -1,90 +1,44 @@
-class Welcome {
+class Welcome{
+    constructor (handlers) {
 
-    /**
-     * 
-     * @param { JSON } campusElements 
-     */
-    constructor (campusElements){
-        this._campusElements = campusElements;
-    
-        const buttonCampus = $(`#${this._campusElements.button}`);
-        const that = this;
+        this._handlers = handlers;
 
-        buttonCampus.on("click", function (){
-            const campus = $(`#${that._campusElements.input}`).val();
-            buttonCampus.val("Registrando...");
-            buttonCampus.attr("disabled", "disabled");
-            const result = Welcome.setCampus(campus).then( res => {
+        this._handlers.on("click", function(){
+            const typeofProcedure = $(this).val();
+            const campus = $("#campus").val();
+            const user = $("#user").val();
+            const valid = Welcome.validate(typeofProcedure, campus, user);
 
-                buttonCampus.val("Listo");
-                buttonCampus.removeAttr("disabled");
-
-                if(res === false || !res.success){
-                    alert("No se logro registrar el plantel, intenta de nuevo");
-                }else{
-                    $(`#${that._campusElements.window}`).css("display", "none");
-                    Welcome.printPhoto(res.data);
-                    Welcome.printCampusName(res.data, "lalala", that._campusElements.window);
-                }
-            });
-        });
-    }
-
-    static selectSchool (element){
-        $(`#${element}`).css("display", "block");
-    }
-
-    static async setCampus (campus) {
-        const availableCampus = config.campus.registredCampus;
-        const coincided = availableCampus.some( available => {
-            return available === parseInt(campus);
-        });
-        if(coincided){
-            const url = `${config.url}login/setUserSchool/${campus}`;
-            // const data = JSON.stringify({campus: campus});
-            try{
-                const response = await fetch(url);
-                if(response.ok){
-                    const jsonResponse = await response.json();
-                    return jsonResponse;
-                }else{
-                    console.log(`Error: ${response}`);
-                    throw new Error("Request failed!");
-                }
-            }catch(error){
-                console.log(error);
+            if(valid){
+                let url = "http://192.168.1.16/SR_MVC/procedures/setSession/";
+                url += typeofProcedure + "/";
+                url += campus + "/";
+                url += user;
+                window.location = url;
+            }else{
+                alert("Favor de llenar ambos campos correctamente");
             }
-        }else{
-            //logic for the case when dosen't match with some campus
-            console.log("something went wrong");
+        });
+    }
+
+    static validate(type, campus, user){
+        let points = 0;
+
+        if(type != "" && type != null && (type === "regist" || type === "login")){
+            points++;
+        }
+        if(campus != "" && campus != null){
+            points++;
+        }
+        if(user != "" && user != null && (user == "student" || user == "profesor")){
+            points++;
+        }
+
+        if(points != 3){
             return false;
+        }else{
+            return true;
         }
-    }
-
-    static printPhoto(campus){
-        const width = config.campus.logo[`p${campus}`].width;
-        const height = config.campus.logo[`p${campus}`].height;
-
-        if($("#plantelLogo").length){
-            $("#plantelLogo").remove();
-        }
-
-        $("#displayLogos").append(`
-            <img 
-                id="plantelLogo" 
-                class="ljhi" 
-                src="${config.url}resources/images/p${campus}/logo_blanco.png" 
-                style="width:${width}%;height:${height}%;" alt="prepa ${campus}" 
-                title="Prepa ${campus}"
-            >
-        `);
-    }
-
-    static printCampusName(id, name, element){
-        $("#displayName").html(`
-            <p>Prepa ${id} ${name}<p>
-            <a onclick="Welcome.selectSchool('${element}');">¿No es tu plantel? Cambialo</a>
-        `);
     }
 }
 

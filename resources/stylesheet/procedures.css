@@ -1,0 +1,113 @@
+#head{
+    width:100%;
+    height:8vh;
+    background-color:var(--blue-unam);
+    padding:1vh;
+    position:fixed;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 9px 0px;
+    -moz-box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 9px 0px;
+    box-shadow:rgba(0, 0, 0, 0.2) 0px 3px 9px 0px;
+    z-index:10;
+}
+#head img{
+    width:6vh;
+    height:6vh;
+    margin-left:3%;
+}
+.container-own{
+    margin-top:50px;
+    position: absolute;
+    width:100%;
+    height:95vh;
+    display:flex;
+    align-items:center;
+    padding:2%;
+    /* background-image:url(../images/1980BN.jpg); */
+    /* background:linear-gradient(to right, #007bff, #2af5ff); */
+    /* background:#001c55; */
+}
+.window{
+    margin:0 auto;
+    width:auto;
+    height:auto;
+    max-height:150vh;
+    background-color:#fff;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 9px 0px;
+    -moz-box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 9px 0px;
+    box-shadow:rgba(0, 0, 0, 0.2) 0px 3px 9px 0px;
+    border-radius:5px;
+}
+#return-button{
+    width:6vw;
+    height:6vw;
+    position:fixed;
+    bottom:12vh;
+    left:6vw;
+    border-radius:50%;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 9px 0px;
+    -moz-box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 9px 0px;
+    box-shadow:rgba(0, 0, 0, 0.2) 0px 3px 9px 0px;
+    background-color:#f0d314;
+    text-align:center;
+    display:flex;
+    /* justify-content:space-around; */
+    align-items:center;
+    cursor:pointer;
+    transition:0.2s all;
+    color:#222;
+}
+#return-button *{
+    margin:0 auto;
+    font-family:"opensans bold";
+    font-weight:bold;
+}
+#return-button:hover{
+    /* background-color:#ff4b1f; */
+    font-size:1.2rem;
+    transition:0.1s all;
+}
+.login-window{
+    width:45vw;
+    height:90vh;
+    padding:5%;
+}
+.login-window .margen{
+    width:100%;
+    height:100%;
+}
+.login-window .margen .title{
+    text-align:center;
+}
+.login-window .margen .title p{
+    font-size:0.9rem;
+    text-align:justify;
+}
+.login-window .margen .title .logo-cont{
+    width:100%;
+    display:flex;
+    justify-content: space-around;
+    padding:2%;
+}
+.logo-cont img{
+    width:80px;
+    height:80px;
+    border-radius:50%;
+}
+.cont-login-student{
+
+}
+@media screen and (max-width:767px){
+    .window{
+        height:80vh;
+    }
+    .login-window{
+        width:85vw;
+        /* height:130vh; */
+    }
+    #return-button{
+        width:18vw;
+        height:18vw;
+        bottom:3vh;
+        left:6vw;
+    }
+}

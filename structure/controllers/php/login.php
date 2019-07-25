@@ -23,11 +23,11 @@ class Login extends Controller{
     private static function canStillRegister(){
         $currentDate = strftime('%y-%m-%d');
 
-        $endDateConfig = $config->dates->endDate;
+        $endDateConfig = constant("CONFIG")["dates"]["endDate"];
         $endDate = strtotime(
-            $endDateConfig->year . '-' .
-            $endDateConfig->month . '-' . 
-            $endDateConfig->day
+            $endDateConfig["year"] . '-' .
+            $endDateConfig["month"] . '-' . 
+            $endDateConfig["day"]
         );
 
         if($currentDate > $endDate){

@@ -2,11 +2,73 @@
 	<head>
 		<?php include_once('structure/views/head.php'); ?>
 		<title>Jóvenes Hacia la Investigación en ciencias experimentales</title>
-    <link rel="stylesheet" type="text/css" href="<?= $config->url ?>resources/stylesheet/indexStyles.css">    
+    <link rel="stylesheet" type="text/css" href="<?= constant("CONFIG")["url"] ?>resources/stylesheet/indexStyles.css">    
 	</head>
   <body>
-	<div id="seleccionar_plantel">
-		<div class="window">	
+	<div class="webpage">
+		<div class="container-own">
+			<main class="shapes">
+				<div id="particles-js" class="layer back"></div>
+				<div class="layer front row">
+					<div class="col-sm-12 onmovile-title">
+							<h2>Jóvenes Hacia La Investigación <span class="subtitle-intern">en Ciencias Experimentales</span></h2>
+							<hr>
+					</div>
+					<div class="col-md-2 banderin">
+							<div class="ban ban-blue"><img class="logo" src="<?= constant("CONFIG")["url"] ?>resources/images/escudounam_blanco.png"></div>
+							<div class="ban "><img class="logo logo-jhi" src="<?= constant("CONFIG")["url"] ?>resources/images/jovenesblanco.png"></div>
+							<div class="ban"><img class="logo" src="<?= constant("CONFIG")["url"] ?>resources/images/leopardos.png"></div>
+					</div>
+					<div class="col-md-10 margen">
+						<div class="col-sm-12 ondesktop-title">
+							<h2>Jóvenes Hacia La Investigación <span class="subtitle-intern">en Ciencias Experimentales</span></h2>
+							<hr>
+						</div>
+						<div class="col-sm-12">
+							<p>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+								Egestas pretium aenean pharetra magna ac.
+							</p>
+						</div>
+						<div class="col-sm-12">
+							<form id="link-options">
+								<div calss="form-group">
+									<label for="campus">Plantel</label>
+									<select class="form-control" name="campus" id="campus">
+										<option value="">Seleccionar</option>
+										<?= $this->registredCampus ?>
+									</select>
+								</div>
+								<div calss="form-group">
+									<label for="user">Usuario</label>
+									<select class="form-control" name="user" id="user">
+										<option value="">Seleccionar</option>
+										<option value="student">Alumno</option>
+										<option value="profesor">Profesor</option>
+									</select>
+								</div>
+							</form>
+							<ul class="button-group">
+								<li>
+									<button class="form-handler btn btn-primary btn-sm btn-block" name="login" value="login">Inicia Sesión</button>
+								</li>
+								<li class="row" style="flex-wrap: nowrap;">
+									<div class="col-sm-5"><hr></div>
+									<div class="col-sm-2"><p>O</p></div>
+									<div class="col-sm-5"><hr></div>
+								</li>
+								<li>
+									<button class="form-handler btn btn-primary btn-sm btn-block" name="regist" value="regist">Registrate</button>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</main>
+		</div>
+	</div>
+	<!-- <div id="seleccionar_plantel"> -->
+		<!-- <div class="window">	
 	        <div class="margen">
 	            <h3>Selecciona tu plantel</h3>
 							<div class="form-group">
@@ -28,11 +90,11 @@
 							</div>
 	        </div>
 	    </div>
-	</div>
+	</div> -->
 	<!-- CABECERA -->
-	<div class="webpage">
+	<!-- <div class="webpage">
 	<div class="col-sm-12" style="margin:0;padding:0;">  
-	  <div class="col-sm-6" style="padding:0;">
+	  <div class="col-sm-12" style="padding:0;">
 			<div class="left">
 				<div id="particles-js"></div>
 				<div class="contenido">
@@ -42,8 +104,10 @@
 				</div>
 			</div>
 		</div>
+	</div>
+	</div> -->
 	  <!-- fin de cabecera -->
-		<div class="col-sm-6" id="rightForm" style="padding:0;">
+		<!-- <div class="col-sm-6" id="rightForm" style="padding:0;">
 			<div class="jumbotron headJum" id="displayLogos">
 					<img class="ljhi" src="<?= $config->url ?>resources/images/escudounam_blanco.png">
 					<img class="ljhi" src="<?= $config->url ?>resources/images/jovenesblanco.png">
@@ -67,7 +131,7 @@
 					<section id="debug"></section>
         </div>
 				<div id="div2" style="display:none;" class="form-pa">
-					<div class="form">
+					<div class="form"> -->
 						<!-- <a id="in">
 							<label for="mostrar-modalIP">
 								<span>
@@ -76,7 +140,7 @@
 								Instrucciones de registro
 							</label>
 						</a> -->
-						<form role="form" name="login2" action="<?= $config->url ?>login/loginProfesor" method="POST" class="FR" data-tipo = "prof">
+						<!-- <form role="form" name="login2" action="<?= $config->url ?>login/loginProfesor" method="POST" class="FR" data-tipo = "prof">
 							<div class="form-group">
 								<label for="rfc">Usuario</label>
 								<input type="text" class="form-control" id="rfc" name="rfc" placeholder="AAAA" maxlength="4" required>
@@ -95,7 +159,7 @@
 					</div>
 				</div>
 				<div id="div1" class="form-pa">
-					<div class="form">
+					<div class="form"> -->
 						<!-- <ul class="instrucciones" style="list-style:none;">
 							<li><h3><b>Alumno</b></h3></li>
 						</ul><br> -->
@@ -107,7 +171,7 @@
 									Instrucciones de registro
 								</label>
 							</a> -->
-						<form role="form" name="login" method="POST" action="<?= $config->url ?>login/loginAlumno" class="FR" id="form_alumno_login" data-tipo = "alumno">
+						<!-- <form role="form" name="login" method="POST" action="<?= $config->url ?>login/loginAlumno" class="FR" id="form_alumno_login" data-tipo = "alumno">
 							<div class="form-group">
 								<label for="nocta">Número de cuenta</label>
 								<input type="text" class="form-control" id="nocta" name="nocta" placeholder="123456789" maxlength="9" required>
@@ -129,27 +193,20 @@
 			</div>
 		</div>
 	</div>
-	</div>
-	<div id="designedBy" class="col-sm-12">
+	</div>-->
+	<!-- <div id="designedBy" class="col-sm-12">
 		<p>Sitio diseñado por Alejandro Gómez García</p>
-	</div>
+	</div> -->
 </body>
-<script>
+<!-- <script>
 	const config = <?php echo file_get_contents("config/config.json"); ?>;
-</script>
-<script src="<?= $config->url ?>structure/controllers/js/welcome.js"></script>
-<script src="<?= $config->url ?>resources/frameworks/particles.min.js"></script>
+</script> -->
+<script src="<?= constant("CONFIG")["url"] ?>structure/controllers/js/welcome.js"></script>
+<script src="<?= constant("CONFIG")["url"] ?>resources/frameworks/particles.min.js"></script>
 <script>
-	particlesJS.load('particles-js', Generalconfig.url + 'resources/assets/particles.json', function() {
+	particlesJS.load('particles-js', 'http://192.168.1.16/SR_MVC/resources/assets/particles.json', function() {
 		console.log('callback - particles.js config loaded');
 	});
-
-	const proube = new Welcome(
-		{
-			window: "seleccionar_plantel",
-			input: "plantel",
-			button: "registrarPlantel"
-		}
-	);
+	const welcome = new Welcome($(".form-handler"));
 </script>
 </html>

@@ -11,7 +11,7 @@ require_once("structure/controllers/php/manageError.php");
 class App{
 
   protected $user;  //usuario (integer)(alumno.length = 9; prof.length = 4)
-  protected $school; //plantel del usuario (integer)
+  protected $campus; //plantel del usuario (integer)
   public $url;  //url actual del usuario, se manejara con el formato descrito anteriormente.
 
   public function __construct(){
@@ -19,9 +19,9 @@ class App{
     session_start();
 
     $this->user   = $_SESSION['user'];
-    $this->school = $_SESSION['school'];
+    $this->campus = $_SESSION['campus'];
     $this->url    = isset($_GET['url']) ? $_GET['url'] : null;
-    $permitedSections = ['salir', 'login', 'registro', 'welcome'];
+    $permitedSections = ['salir', 'login', 'registro', 'welcome', 'procedures'];
     
     $u = rtrim($this->url, '/');
     $u = explode('/', $u);
@@ -29,7 +29,7 @@ class App{
 
     if(!empty($clase)){
       //si no esta vacia la url
-      $access = in_array($clase, $permitedSections) ? true : $this->varValidate($this->user, $this->school);
+      $access = in_array($clase, $permitedSections) ? true : $this->varValidate($this->user, $this->campus);
       if($access){
         $controller = 'structure/controllers/php/' . $clase . '.php';
         if(file_exists($controller)){
@@ -65,7 +65,7 @@ class App{
         //acceso denegado
         print("<script>
                   alert('acceso denegado');
-                  window.location = '". constant('URL') ."';
+                  window.history.back();
                 </script>");
       }
     }else{
@@ -78,13 +78,14 @@ class App{
     }
   }
 
+  /**
+  *  función que resive un número de datos indefinidos de sesión 
+  *  para validar la entrada del usuario a ciertas secciones.
+  *  @access private.
+  *  @param Array; Multiples variables de sesion.
+  *  @return boolean; verdadero si las variables estan bien definidas.
+  */
   private static function varValidate(){
-    /*función que resive un número de datos indefinidos de sesión 
-      para validar la entrada del usuario a ciertas secciones.
-      @access private.
-      @param Array; Multiples variables de sesion.
-      @return boolean; verdadero si las variables estan bien definidas.
-    */
     $variables_a_validar = func_get_args();
     foreach($variables_a_validar as $var){
       if(!isset($var) || $var == null || $var == "" || $var == " "){

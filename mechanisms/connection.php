@@ -10,9 +10,10 @@ class Connection {
     public $neutral;
 
     public function __construct($dataBase, $charset){
-        $this->user = constant("USER");
-        $this->password = constant("PASSWORD");
-        $this->host = constant("HOST");
+        $config = constant("CONFIG")["database"];
+        $this->user = $config["user"];
+        $this->password = $config["password"];
+        $this->host = $config["host"];
         $this->dataBase = $dataBase;
         $this->charset = $charset;
         $this->neutral = 'neutralConnection';

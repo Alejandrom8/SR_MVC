@@ -27,7 +27,30 @@ class Controller{
         $data = htmlspecialchars($data);
         return $data;
     }
-    
+
+    protected function setCampus($campus){
+        $_SESSION['campus'] = $campus;
+    }
+
+    protected function getCampus(){
+        return $_SESSION['campus'];
+    }
+
+    protected function setTypeOfUser($type){
+        $_SESSION['typeOfUser'] = $type;
+    }
+
+    protected function getTypeOfUser(){
+        return $_SESSION['user'];
+    }
+
+    protected function setUser($user){
+        $_SESSION['user'] = $user;
+    }
+
+    protected function getUser(){
+        return $_SESSION['user'];
+    }
 }
 
 ?>
