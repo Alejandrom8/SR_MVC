@@ -1,14 +1,16 @@
 <?php
 class ManageError extends Controller{
     public $message;
-    public function __construct($message = "hubo un error inesperado o la seccion a la que intent entrar no existe"){
+    public function __construct($message = "hubo un error inesperado o la sección a la que intent entrar no existe", $endSession = false){
         parent::__construct();
         $this->view->message = $message;
-        // print("<script>alert('Error: " . $this->$message . "');window.history.back();</script>");
-        // return false;
+        if($endSession){
+            require_once("goout.php");
+            Goout::out();
+        }
+        $this->render();
     }
     public function render(){
         $this->view->render("error/index");
     }
 }
-?>

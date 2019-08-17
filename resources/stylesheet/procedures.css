@@ -1,21 +1,21 @@
 #head{
-    width:100%;
-    height:8vh;
+    /* width:100%;
+    height:8vh; */
     background-color:var(--blue-unam);
-    padding:1vh;
+    /* padding:1vh; */
     position:fixed;
     -webkit-box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 9px 0px;
     -moz-box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 9px 0px;
     box-shadow:rgba(0, 0, 0, 0.2) 0px 3px 9px 0px;
     z-index:10;
 }
-#head img{
+/* #head img{
     width:6vh;
     height:6vh;
     margin-left:3%;
-}
+} */
 .container-own{
-    margin-top:50px;
+    /* margin-top:50px; */
     position: absolute;
     width:100%;
     height:95vh;
@@ -36,35 +36,6 @@
     -moz-box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 9px 0px;
     box-shadow:rgba(0, 0, 0, 0.2) 0px 3px 9px 0px;
     border-radius:5px;
-}
-#return-button{
-    width:6vw;
-    height:6vw;
-    position:fixed;
-    bottom:12vh;
-    left:6vw;
-    border-radius:50%;
-    -webkit-box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 9px 0px;
-    -moz-box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 9px 0px;
-    box-shadow:rgba(0, 0, 0, 0.2) 0px 3px 9px 0px;
-    background-color:#f0d314;
-    text-align:center;
-    display:flex;
-    /* justify-content:space-around; */
-    align-items:center;
-    cursor:pointer;
-    transition:0.2s all;
-    color:#222;
-}
-#return-button *{
-    margin:0 auto;
-    font-family:"opensans bold";
-    font-weight:bold;
-}
-#return-button:hover{
-    /* background-color:#ff4b1f; */
-    font-size:1.2rem;
-    transition:0.1s all;
 }
 .login-window{
     width:45vw;
@@ -92,9 +63,6 @@
     width:80px;
     height:80px;
     border-radius:50%;
-}
-.cont-login-student{
-
 }
 @media screen and (max-width:767px){
     .window{

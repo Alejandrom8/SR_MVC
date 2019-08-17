@@ -6,7 +6,7 @@
                 <img src="<?= constant("CONFIG")["url"] ?>resources/images/jovenes.png">
                 <!-- <img src="<?= constant("CONFIG")["url"] ?>resources/images/leopardos.png"> -->
             </div>
-            <h2>Login ~ Alumnos</h2>
+            <h2>Login - Alumnos</h2>
             <hr>
             <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit,
@@ -34,50 +34,10 @@
     </div>
 </div>
 <script>
-
-    async function sendData(data){
-        const urlAPI = url + "procedures/login";
-        try{
-            const response = await fetch(urlAPI, {
-                method: "post",
-                body: data
-            });
-
-            if(response.ok){
-                return await response.json();
-            }else{
-                throw new Error("Error al hacer la consulta");
-            }
-        }catch(e){
-            console.log(e);
-        }
-        return null;
-    }
-
-    function manageResponse(data){
-        if(data.success){
-            window.location = data.onSuccessEvent;
-        }else{
-            const issues = data.message;
-            console.log(data.errors);
-            const debugSection = document.getElementById("debugger");
-            debugSection.innerHTML = `<div id="error" class="alert alert-danger" role="alert">
-                                        <span>${issues}</span>
-                                      </div>`;
-            setTimeout(() => {
-                $("#error").fadeOut("slow");
-            }, 8000);                          
-        }
-    }
-
-    const form = document.getElementById("login-form");
-    form.addEventListener( 'submit' , async function (e) {
-        e.preventDefault();
-        const formData = new FormData(this);
-        const result = await sendData(formData);
-        console.log(result);
-        if(result != null){
-            manageResponse(result);
-        }
-    });
+    const loginForm = new LoginForm(
+        url + "procedures/loginStudent",
+        document.getElementById("login-form"),
+        $("#send"),
+        $("#debugger")
+    );
 </script>

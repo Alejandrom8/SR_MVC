@@ -1,5 +1,7 @@
 <?php 
 
+include_once("procedures.php");
+
 class Welcome extends Controller{
 
     protected $prueba;
@@ -7,6 +9,17 @@ class Welcome extends Controller{
     public function __construct(){
         parent::__construct();
         $this->view->registredCampus = null;
+
+        $canStillRegister = Procedures::canStillRegister();
+
+        $registOption = '<button class="form-handler btn btn-secondary btn-sm btn-block" name="typeForm" value="regist">Registrate</button>';
+        $noRegist = '
+            <div class="alert alert-warning">El periodo de registro para el año 2019 ha terminado</div>
+            <button class="form-handler btn btn-secondary btn-sm btn-block" name="typeForm" value="regist" disabled>Registrate</button>
+        ';
+
+        $this->view->registOption = $canStillRegister ? $registOption : $noRegist;
+        
         $this->askForRegistredCampus();
     }
 
@@ -26,5 +39,3 @@ class Welcome extends Controller{
         $this->render();
     }
 }
-
-?>

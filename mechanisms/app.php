@@ -1,8 +1,11 @@
 <?php
 /*
+  Router.
+
   Clase para manejar el direccionamiento. 
   Cada que se introdusca una URL en el navegador, tendrá que seguir
   el siguiente formato:
+
       dominio/carpeta principal/clase/metodo/parametros
 */
 
@@ -21,7 +24,7 @@ class App{
     $this->user   = $_SESSION['user'];
     $this->campus = $_SESSION['campus'];
     $this->url    = isset($_GET['url']) ? $_GET['url'] : null;
-    $permitedSections = ['salir', 'login', 'registro', 'welcome', 'procedures'];
+    $permitedSections = ['goout', 'login', 'registro', 'welcome', 'procedures'];
     
     $u = rtrim($this->url, '/');
     $u = explode('/', $u);
@@ -33,6 +36,7 @@ class App{
       if($access){
         $controller = 'structure/controllers/php/' . $clase . '.php';
         if(file_exists($controller)){
+
           require_once $controller;
 
           $page = new $clase;
@@ -52,21 +56,21 @@ class App{
                 $page->{$u[1]}();
               }
             }else{
-              $page = new ManageError();
+              $page = new ManageError("Error 500: internal server error.");
             }
           }else{
-            $page->render();
+            // $page->render();
           }
         }else{
           //la página no existe
-          $page = new ManageError();
+          $page = new ManageError("La pagina a la que intenta entrar, no existe");
         }
       }else{
         //acceso denegado
         print("<script>
                   alert('acceso denegado');
-                  window.history.back();
-                </script>");
+                  window.location= '" . constant("CONFIG")["url"] . "';
+              </script>");
       }
     }else{
       //si la url esta vacía se le redirecciona a la página principal
@@ -81,11 +85,11 @@ class App{
   /**
   *  función que resive un número de datos indefinidos de sesión 
   *  para validar la entrada del usuario a ciertas secciones.
-  *  @access private.
+  *  @access public.
   *  @param Array; Multiples variables de sesion.
   *  @return boolean; verdadero si las variables estan bien definidas.
   */
-  private static function varValidate(){
+  public static function varValidate(){
     $variables_a_validar = func_get_args();
     foreach($variables_a_validar as $var){
       if(!isset($var) || $var == null || $var == "" || $var == " "){
@@ -96,5 +100,3 @@ class App{
   }
 
 }
-
-?>

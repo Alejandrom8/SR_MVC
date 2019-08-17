@@ -4,29 +4,45 @@ class Welcome{
         this._handlers = handlers;
 
         this._handlers.on("click", function(){
-            const typeofProcedure = $(this).val();
-            const campus = $("#campus").val();
-            const user = $("#user").val();
-            const valid = Welcome.validate(typeofProcedure, campus, user);
 
-            if(valid){
-                let url = "http://192.168.1.16/SR_MVC/procedures/setSession/";
-                url += typeofProcedure + "/";
-                url += campus + "/";
-                url += user;
-                window.location = url;
-            }else{
-                alert("Favor de llenar ambos campos correctamente");
-            }
+            const typeForm = $(this).val();
+
+            $("#link-options").on("submit", function(e){
+                const campus = $("#campus").val();
+                const user = $("#user").val();
+
+                if(campus != "" && user != ""){
+                    $("<input />").attr("type", "hidden")
+                                  .attr("name", "typeForm")
+                                  .attr("value", typeForm)
+                                  .appendTo("#link-options");
+                    
+                    let justLogin = null;
+
+                    if(typeForm === "regist"){
+                        justLogin = 0;
+                    }else{
+                        justLogin = 1;
+                    }
+
+                    $("<input />").attr("type", "hidden")
+                                  .attr("name", "justLogin")
+                                  .attr("value", justLogin)
+                                  .appendTo("#link-options");
+                    return true;
+                }else{
+                    swal("Favor de llenar ambos campos correctamente");
+                    return false;
+                }
+            });
+
+            $("#link-options").submit();
         });
     }
 
-    static validate(type, campus, user){
+    static validate(campus, user){
         let points = 0;
 
-        if(type != "" && type != null && (type === "regist" || type === "login")){
-            points++;
-        }
         if(campus != "" && campus != null){
             points++;
         }
@@ -34,11 +50,15 @@ class Welcome{
             points++;
         }
 
-        if(points != 3){
+        if(points != 2){
             return false;
         }else{
             return true;
         }
+    }
+
+    send(type){
+
     }
 }
 

@@ -1,6 +1,6 @@
 const Generalconfig = {
     "estado": "mantenimiento",
-    "url" : "http://192.168.1.16/SR_MVC/",
+    "url" : "http://localhost/SR_MVC/",
     "fechas": {
         "fecha de apertura": {
             "dia": 29, 

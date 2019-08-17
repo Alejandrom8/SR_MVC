@@ -1,0 +1,14 @@
+{
+  "name": "sr-jhi-unam",
+  "version": "1.0.0",
+  "description": "A web application that let make a better manager of the registration process on the JHI program of the UNAM.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Alejandro Gomez Garcia <ale.wild.ones@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "swiper": "^4.5.0"
+  }
+}

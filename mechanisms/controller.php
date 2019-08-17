@@ -29,7 +29,7 @@ class Controller{
     }
 
     protected function setCampus($campus){
-        $_SESSION['campus'] = $campus;
+        $_SESSION['campus'] = $this->desinfect($campus);
     }
 
     protected function getCampus(){
@@ -37,19 +37,27 @@ class Controller{
     }
 
     protected function setTypeOfUser($type){
-        $_SESSION['typeOfUser'] = $type;
+        $_SESSION['typeOfUser'] = $this->desinfect($type);
     }
 
     protected function getTypeOfUser(){
-        return $_SESSION['user'];
+        return $_SESSION['typeOfUser'];
     }
 
     protected function setUser($user){
-        $_SESSION['user'] = $user;
+        $_SESSION['user'] = $this->desinfect($user);
     }
 
     protected function getUser(){
         return $_SESSION['user'];
+    }
+
+    protected function setUserName($name){
+        $_SESSION['username'] = $this->desinfect($name);
+    }
+
+    protected function getUserName(){
+        return $_SESSION['username'];
     }
 }
 

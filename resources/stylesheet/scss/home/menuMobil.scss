@@ -1,0 +1,143 @@
+
+
+#menu{
+
+    display:flex;
+    position:fixed;
+    z-index:10;
+    width:100%;
+    justify-content:flex-end !important;
+    align-items:center;
+    padding:5px 4%;
+    // background-color:var(--blue-unam);
+    // border-bottom:3px solid #BB8800;
+    background-color:rgba(25, 52, 85, 0.7);
+
+    // @include googleShadow();
+
+    h3,h4,h5, h6{
+        color:#fff;
+        font-family:"opensans bold";
+        padding:5px 10px;
+    }
+    
+    span{
+        color:#fff;
+        font-family:"opensans";
+        padding:5px 10px;
+        font-weight:bold;
+        font-size:0.8rem;
+        letter-spacing: 0.1rem;
+        display:none;
+
+        @media screen and (min-width:767px){
+            display:block;
+        }
+    }
+
+    li, a, button{
+        font-size:16px;
+        font-weight:500;
+        text-decoration:none;
+    }
+
+    .nav_logos{
+        margin-right:auto !important;
+        list-style: none;
+
+        li{
+            display:inline-block;
+            padding:0px 12.5px;
+            padding-top:5%;
+            
+        }
+    }
+
+    .logo{
+        width:35px;
+        height:35px;
+        cursor:pointer;
+    }
+
+    .user-photo{
+        width:40px;
+        height:40px;
+        border-radius:50%;
+        margin:0px 20px;
+        border:3px solid #BB8800;
+
+        display:none;
+
+        @media screen and (min-width: 767px){
+            display:block;
+        }
+    }
+
+    .nav_links{
+        list-style:none;
+
+        li{
+            display:inline-block;
+            padding:0px 20px;
+            padding-top:3%;
+
+            a{
+                color:#eee;
+            }
+        }
+    }
+
+    button.btn{
+        padding:2px 6px;
+        // background-color: #ff372e;
+        border:0;
+        border-radius:10px;
+        color:#fff;
+        // font-weight:bold;
+        cursor:pointer;
+    }
+
+    #movibleSection{
+        position:absolute;
+        top:9vh;
+        right:-100vw;
+        width:100vw;
+        height:91vh;
+        background-color:#eee;
+        padding:20px;
+
+        transition:all 0.2s;
+
+        @include googleShadow();
+
+        @media screen and (min-width: 767px){
+            width:26vw;
+            top:10vh;
+            height:90vh;
+        }
+
+        a{
+            width:100%;
+            display:inline-block;
+            color:#222;
+            outline: none;
+            
+            border-bottom:2px solid #aaa;
+
+            button{
+                width: 100%;
+                text-align:left;
+                padding:15px 20px;
+                background:#dedede;
+                border:0;
+                font-family:'opensans';
+            }
+
+            :hover{
+                background-color:var(--green-cool);
+                color:#fff;
+                font-weight:bold;
+            }
+        }
+    }
+}

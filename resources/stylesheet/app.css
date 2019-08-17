@@ -1,0 +1,317 @@
+.container-own {
+  display: flex;
+  align-items: center;
+}
+
+.container-own {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  padding: 2%;
+}
+@media screen and (min-width: 767px) {
+  .container-own {
+    display: flex;
+    justify-content: space-around;
+  }
+}
+
+.window {
+  background-color: #fff;
+  border-radius: 5px;
+  width: auto;
+  height: auto;
+  margin: 2%;
+  margin-top: 4%;
+  padding: 2%;
+  padding-left: 1%;
+  padding-right: 1%;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 9px 0px;
+  -moz-box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 9px 0px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 9px 0px;
+}
+.window .alert {
+  padding: 2%;
+  padding-left: 4%;
+  padding-right: 4%;
+}
+
+.login-window {
+  width: 40vw;
+  padding: 6%;
+}
+.login-window .margen {
+  width: 100%;
+  height: 100%;
+}
+.login-window .margen .title {
+  text-align: center;
+}
+.login-window .margen .title p {
+  font-size: 0.9rem;
+  text-align: justify;
+}
+.login-window .logo-cont {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  padding: 2%;
+}
+.login-window .logo-cont img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}
+@media screen and (max-width: 767px) {
+  .login-window {
+    width: 85vw;
+    padding-left: 3%;
+    padding-right: 3%;
+  }
+}
+
+.regist-container {
+  width: 85vw;
+  height: 120vh;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  color: #737373;
+}
+.regist-container #progress {
+  width: 100%;
+  background-color: #eee;
+}
+.regist-container #progress #bar {
+  width: 33.3333333333%;
+  height: 1.2vh;
+  background-color: #007bff;
+}
+@media screen and (max-width: 767px) {
+  .regist-container {
+    height: 165vh;
+  }
+}
+.regist-container .form-control {
+  font-size: 0.9rem;
+}
+.regist-container label {
+  font-size: 0.9rem;
+}
+.regist-container .frame {
+  border: 1px solid #777;
+}
+
+#regist-forms {
+  width: 100%;
+  height: 100%;
+  padding: 1%;
+}
+@media screen and (max-width: 767px) {
+  #regist-forms {
+    padding-left: 2%;
+    padding-right: 2%;
+  }
+}
+
+.swiper-container {
+  width: 100%;
+  height: 100%;
+}
+.swiper-container .row {
+  margin-left: 0;
+  margin-right: 0;
+}
+.swiper-button-next, .swiper-button-prev {
+  width: 100px;
+  top: 95%;
+  background-image: none;
+}
+
+.swiper-pagination-bullet {
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  line-height: 20px;
+  font-size: 12px;
+  color: #000;
+  opacity: 1;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.swiper-pagination-bullet-active {
+  color: #fff;
+  background: #007aff;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-family: "opensans";
+  z-index: 9;
+}
+.swiper-slide h2, .swiper-slide h3, .swiper-slide h4 {
+  font-family: "opensans bold";
+}
+.swiper-slide .row .form-group {
+  text-align: left;
+}
+
+#window-1 {
+  padding-top: 8%;
+}
+
+#window-2 {
+  display: flex;
+  align-items: center;
+}
+#window-2 .col-md-12 {
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+
+#window-3 {
+  padding-top: 4%;
+}
+#window-3 .col-md-6 {
+  text-align: left;
+}
+#window-3 .col-md-6 .row {
+  margin-left: 0;
+  margin-right: 0;
+}
+#window-3 .col-sm-6 {
+  padding-left: 1%;
+  padding-right: 1%;
+}
+
+.instructions {
+  text-align: justify;
+  font-size: 0.9rem;
+  padding: 4%;
+  display: flex;
+  align-items: center;
+}
+.instructions div {
+  width: 90%;
+  height: auto;
+  margin: 0 auto;
+}
+.instructions .btn {
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+@media screen and (max-width: 767px) {
+  .instructions {
+    margin-top: 6%;
+    margin-bottom: 6%;
+  }
+}
+
+.aclaration {
+  font-size: 0.8rem;
+  color: #888;
+  line-height: 1.1rem;
+}
+
+#preview {
+  width: 50%;
+  height: 60%;
+}
+#preview img {
+  width: 100%;
+  height: 100%;
+}
+
+.card-footer ul {
+  text-align: left;
+}
+.card-footer li {
+  list-style: none;
+  font-size: 0.8rem;
+  color: #444;
+}
+
+#menu {
+  position: fixed;
+  width: 100%;
+  height: 45px;
+  background-color: var(--blue-unam);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  border-bottom: 3px solid #BB8800;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 9px 0px;
+  -moz-box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 9px 0px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 9px 0px;
+}
+#menu .margen {
+  width: 100%;
+  height: 95%;
+  margin: 0 auto;
+}
+#menu .margen section {
+  position: relative;
+  float: left;
+}
+#menu .margen section#logo-section {
+  margin: 0 auto;
+  height: 100%;
+  width: 60%;
+  padding: 1%;
+}
+#menu .margen section#logo-section a.navbar-brand {
+  padding: 0;
+  margin-top: -2%;
+}
+#menu .margen section#logo-section a.navbar-brand.title {
+  font-family: "opensans bold";
+  color: #fff;
+  font-size: 1rem;
+}
+#menu .margen section#logo-section img {
+  margin: 0;
+}
+#menu .margen section#link-section {
+  width: 40%;
+  margin: 0;
+  height: 100%;
+}
+#menu .margen section#link-section div.name {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+#menu .margen section#link-section div.name p {
+  margin: 0 auto;
+  color: #fff;
+  font-family: "roboto";
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+@media screen and (max-width: 767px) {
+  #menu .margen section#link-section div.name {
+    display: none;
+  }
+}
+#menu .margen section#link-section div.salir {
+  padding: 0;
+  display: flex;
+  align-items: center;
+  border-left: 10px solid rgba(0, 0, 0, 0.35);
+}
+#menu .margen section#link-section div.salir .btn {
+  margin: 0 auto;
+  width: 100%;
+  border-radius: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  font-family: "opensans bold";
+}
+#menu .margen section#link-section div.salir .btn * {
+  margin: 0 auto;
+}
+
+/*# sourceMappingURL=app.css.map */

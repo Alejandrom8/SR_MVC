@@ -14,5 +14,3 @@
   require_once("mechanisms/app.php");
   //se crea el objeto controlador
   $jovenesHaciaLaInvestigacion = new App();
-  
-?>

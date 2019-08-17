@@ -1,0 +1,23 @@
+@mixin googleShadow{
+    -webkit-box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 9px 0px;
+    -moz-box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 9px 0px;
+    box-shadow:rgba(0, 0, 0, 0.2) 0px 3px 9px 0px;
+}
+
+*{
+    box-sizing: border-box;
+    margin:0;
+    padding:0;
+}
+
+.webpage{
+    width:100%;
+    height:auto;
+}
+
+@import 'menuMobil';
+@import 'aperture';
+@import 'options';
+@import 'footer';
+
+@import 'update';

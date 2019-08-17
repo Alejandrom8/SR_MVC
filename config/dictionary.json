@@ -1,0 +1,11 @@
+{
+    "turn": {
+        "0": "matutino",
+        "1": "vespertino",
+        "2": "mixto"
+    },
+    "reason": {
+        "0": "reinscripción",
+        "1": "inscripción"
+    }
+}
