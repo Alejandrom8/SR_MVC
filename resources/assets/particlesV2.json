@@ -36,7 +36,7 @@
         }
       },
       "size": {
-        "value": 8,
+        "value": 11,
         "random": true,
         "anim": {
           "enable": false,
@@ -49,7 +49,7 @@
         "enable": true,
         "distance": 300,
         "color": "#3686dc",
-        "opacity": 0.4,
+        "opacity": 1,
         "width": 2
       },
       "move": {

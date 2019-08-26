@@ -1,0 +1,173 @@
+#app{
+    position: absolute;
+    top:8%;
+    width:100%;
+    height:auto;
+
+    aside{
+        width:20%;
+        height:auto;
+        float:left;
+        min-height: 92vh;
+        background: #1488CC;  /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right, #2B32B2, #1488CC);  /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, #2B32B2, #1488CC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        padding:1% 0;
+        border-radius:5px;
+        overflow:hiiden;
+
+        .table{
+            color:#fff;
+            // background-color:rgba(0,0,0,0.1);
+            thead{
+                background-color:rgba(0,0,0,0.1);
+            }
+            .arrow-right {
+                width: 0; 
+                height: 0; 
+                border-top: 60px solid transparent;
+                border-bottom: 60px solid transparent;
+                
+                border-left: 60px solid green;
+            }
+
+            th{
+                border-spacing:0;
+                border-top:0;
+                border-collapse: unset;
+            }
+
+            tr{
+                border-spacing:0;
+                border-top:0;
+                border-collapse: unset;
+                position:relative;
+
+                :hover{
+                    background-color:#fff;
+                    color:#222;
+                    cursor:pointer;
+                }
+                :active{
+                    font-family:"opensans bold";
+
+                    :after {
+                        content:'';
+                        position: absolute;
+                        top: 20%;
+                        left: 100%;
+                        margin-left: -16px;
+                        width: 0;
+                        height: 0;
+                        border-right: solid 16px #333;
+                        border-top: solid 15px transparent;
+                        border-bottom: solid 15px transparent;
+                    }
+                }
+            }
+
+        }
+    }
+
+    .window{
+        width:80%;
+        height:92vh;
+        max-height:92vh;
+        overflow-y:scroll;
+        display:none;
+        float:left;
+        padding:4%;
+
+        h1, h2, h3, h4, h5{
+            font-family:"opensans bold";
+        }
+
+        .statistics-table{
+            margin:4%;
+            width:92%;
+            // background-color:#eee;
+
+            .table-head{
+                // background: #11998e;  /* fallback for old browsers */
+                // background: -webkit-linear-gradient(to right, #38ef7d, #11998e);  /* Chrome 10-25, Safari 5.1-6 */
+                // background: linear-gradient(to right, #38ef7d, #11998e); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+                background: #00F260;  /* fallback for old browsers */
+                background: -webkit-linear-gradient(to right, #0575E6, #00F260);  /* Chrome 10-25, Safari 5.1-6 */
+                background: linear-gradient(to right, #0575E6, #00F260); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+                
+
+                font-weight:bold;
+                font-size:0.9rem;
+                color:#fff;
+                width:100%;
+                padding:1% 5%;
+                border-radius:20px;
+            }
+
+            .table{
+                margin:2% 0%;
+                width:100%;
+            }
+        }
+
+        .downloadSection{
+            width:100%;
+            display:flex;
+            justify-content: flex-end;
+            align-items:center;
+            align-content:center;
+            padding:0% 4% 2% 4%;
+
+            span{
+                margin:0 4%;
+            }
+        }
+
+        .explorer{
+            width:100%;
+            padding:4%;
+
+            .form-control{
+                width:90%;
+                height:5%;
+                border-top-left-radius:20px;
+                border-bottom-left-radius:20px;
+                padding:1.5% 4%;
+                font-family:"opensans";
+                font-size:1.1rem;
+            }
+
+            .input-group-append{
+                width:10%;
+            }
+        }
+
+        #registCampus{
+            margin:3% 5%;
+            width:90%;
+            padding:3%;
+            border:2px solid;
+            border-image-source: linear-gradient(45deg, rgb(0,143,104), rgb(250,224,66));
+            border-image-slice:1;
+            border-radius:5px;
+
+            @include googleShadow();
+        }
+    }
+
+    #results{
+        display:flex;
+        justify-content:space-around;
+        align-items:center;
+        background-color:#fff;
+        min-height:70vh;
+        .loader{
+            width:30%;
+            height:30%;
+        }
+    }
+
+    .instructions{
+        color:#777;
+    }
+}

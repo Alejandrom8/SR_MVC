@@ -21,36 +21,32 @@
             <section id="movibleSection">
                 <a class="button-href" href="#"><button><i class="fas fa-home"></i> Inicio</button></a>
                 <a class="button-href" href="#" onclick="showUpdateWindow();"><button>Actualizar datos</button></a>
-                <a class="button-href" href="#"><button>Comprobante</button></a>
+                <a class="button-href" href="<?= constant("CONFIG")["url"] . "home/getProofOfRegistration/" . $_SESSION["campus"] . "/" . $this->user->accaunt ?>" target="_blank"><button>Comprobante</button></a>
                 <a class="button-href" href="<?= constant("CONFIG")["url"] ?>goout"><button><i class="fas fa-sign-out-alt"></i> Salir</button></a>
             </section>
         </header>
         <section id="aperture">
-            <h1>Jovenes Hacía la Investigación en Ciencias Experimentales</h1>
+            <h1>Jóvenes Hacía la Investigación en Ciencias Experimentales</h1>
         </section>
         <section id="options" class="row">
-            <div class="card col-md-4">
-                <div class="card-body">
-                    <h4 class="card-title">Descarga tu comprobante</h4>
-                    <p class="card-text">Da click aquí para obtener tu comprobante en formato PDF.</p>
-                    <br>
-                    <a href="<?= constant("CONFIG")["url"] . "home/getProofOfRegistration/" . $_SESSION["campus"] . "/" . $this->user->accaunt ?>" class="btn btn-primary btn-block" target="_blanc">Descargar <i class="fas fa-file-download"></i></a>
-                </div>
+        <div class="window">
+                <h4 class="card-title">Descarga tu comprobante</h4>
+                <p class="card-text">Da click aquí para obtener tu comprobante en formato PDF.</p>
+                <br>
+                <a href="<?= constant("CONFIG")["url"] . "home/getProofOfRegistration/" . $_SESSION["campus"] . "/" . $this->user->accaunt ?>" class="btn btn-primary btn-block" target="_blank">Descargar <i class="fas fa-file-download"></i></a>
             </div>
-            <div class="card col-md-4">
-                <div class="card-body">
+            <div class="window">
                     <h4 class="card-title">Actualiza tus datos</h4>
-                    <p class="card-text">Si necesitas actualizar o corregir algún dato, da click aqui.</p>
+                    <p class="card-text">Si necesitas actualizar o corregir algún dato, da click aquí.</p>
                     <br>
                     <a href="#" class="btn btn-primary btn-block" onclick="showUpdateWindow();">Actualizar <i class="fas fa-pen-square"></i></a>
-                </div>
             </div>
         </section>
         <section id="update-section">
             <button id="close-button" onclick="showUpdateWindow();">
                 X
             </button>
-            <div class="cont">
+            <form class="cont" id="dataUpdate">
                 <div class="col-md-12 title"><h4>Actualización de datos</h4></div>
                 <div class="row">
                     <div class="col-md-6 photo">
@@ -84,36 +80,24 @@
                         </div>
                     </div>
                     <div class="col-md-6 first">
-                        <div class="form-group">
-                            <label for="name">Nombre: </label>
-                            <input type="text" id="name" name="name" class="form-control" value="<?= $this->user->name ?>" readonly required>
-                        </div>
-                        <div class="form-group">
-                            <label for="accaunt">No. de cuenta: </label>
-                            <input type="text" id="accaunt" name="accaunt" class="form-control" value="<?= $this->user->accaunt ?>" readonly required>
-                        </div>
-                        <div class="form-group">
-                            <label for="bornDate">Fecha de nacimiento: </label>
-                            <input type="text" id="bornDate" name="bornDate" class="form-control" value="<?= $this->uei["bornDate"] ?>" readonly required>
-                        </div>
-                        <div class="form-group row">
-                            <div class="col" style="padding:2%;">
-                                <label for="grade">Grado: </label>
-                                <input type="text" name="grade" id="grade" 
-                                class="form-control" readonly
-                                maxlength="2" pattern="([4-6])" value="<?= $this->uei["grade"] ?>"
-                                readonly
-                                >
+                        <h5>1. Datos principales</h5>
+                        <section style="background-color:#eee;padding:5%;margin:2% 1%;">
+                            <div class="form-group">
+                                <p>Nombre: <?= $this->user->name ?></p>
                             </div>
-                            <div class="col" style="padding:2%;">
-                                <label for="group">Grupo: </label>
-                                <input type="text" name="group" id="group"
-                                class="form-control" readonly
-                                maxlength="5" pattern="([0-9]|[A-Z])" value="<?= $this->uei["group"] ?>"
-                                readonly
-                                >
+                            <div class="form-group">
+                                <p>No. de cuenta: <?= $this->user->accaunt ?></p>
                             </div>
-                        </div>
+                            <div class="form-group">
+                                <p>Fecha de nacimiento: <?= $this->uei["bornDate"] ?></p>
+                            </div>
+                            <div class="form-group">
+                                    <p>Grado: <?= $this->uei["grade"] ?>°</p>
+                            </div>
+                            <div class="form-group">
+                                <p>Grupo: <?= $this->uei["group"] ?></p>
+                            </div>
+                        </section>
                         <div class="form-group">
                             <label for="turn">Turno:</label>
                             <select id="turn" name="turn" class="form-control" required>
@@ -123,13 +107,18 @@
                         </div>
                         <div class="form-group">
                             <label for="reason">¿Es la primera vez que te inscribes al programa?</label><br>
-                            <input type="radio" id="reason" name="reason" value="1" required>Si<br><!-- means inscription -->
+                            <?php if($this->uei["reason"]): ?>
+                            <input type="radio" id="reason" name="reason" value="1" required checked>Si<br><!-- means inscription -->
                             <input type="radio" id="reason" name="reason" value="0" required>No<!-- means reinscription -->
+                            <?php else:  ?>
+                            <input type="radio" id="reason" name="reason" value="1" required>Si<br><!-- means inscription -->
+                            <input type="radio" id="reason" name="reason" value="0" required checked>No<!-- means reinscription -->
+                            <?php endif; ?>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-12 second">
-                    <h5>3. Tu dirección</h5>
+                    <h5>2. Tu dirección</h5>
                     <br/>
                     <div class="form-group">
                         <label for="street">Calle y Número: </label>
@@ -146,6 +135,7 @@
                     <div class="form-group">
                         <label for="townHall">Alcaldia: </label>
                         <select class="form-control" type="text" id="townHall" name="townHall" required>
+                            <?= "<option value='" . $this->uei["townHall"] . "'>" . $this->uei["townHall"] . "</option>" ?>
                             <option value="">Seleccionar...</option>
                             <option value="Álvaro Obregón">Álvaro Obregón</option>
                             <option value="Azcapotzalco">Azcapotzalco</option>
@@ -181,7 +171,7 @@
                     </div>
                 </div>
                 <div class="col-md-12 third">
-                    <h5>4:  Otros datos</h5>
+                    <h5>3:  Otros datos</h5>
                     <br/>
                     <div class="form-group">
                             <label for="tutor">Nombre del Padre o Tutor: </label>
@@ -214,18 +204,16 @@
                     </div>
                 </div>
                 <div class="col-md-12 fourth">
-                    <h5>2. Acerca de tu área de interés</h5>
+                    <h5>4. Acerca de tu área de interés</h5>
                     <br>
                     <div class="form-group">
                         <label for="college">Colegio: </label>
                         <select class="form-control" name="college" id="college" required>
+                            <?= "<option value='". $this->uei["college"] ."'>". $this->uei["collegeName"] ."</option>" ?>
                             <option value="">Seleccionar...</option>
                             <?php 
-                                $colleges = $this->colleges;
-                                foreach($colleges as $college){
-                                $id = $college["id"];
-                                $name = $college["name"];
-                                echo '<option value="' . $id . '">' . $name . '</option>';
+                                foreach($this->colleges as $col){
+                                    echo "<option value='". $col["id"] ."'>". $col["name"] ."</option>";
                                 }
                             ?>
                         </select>
@@ -233,23 +221,35 @@
                     <div class="form-group">
                         <label for="subject">Asignatura: </label>
                         <select class="form-control" name="subject" id="subject" required>
+                            <option value="<?= $this->uei["subject"] ?>"><?= $this->uei["subjectName"] ?></option>
                             <option value="">Seleccionar...</option>
+                            <?php 
+                                foreach($this->subjects as $sub){
+                                    echo "<option value='". $sub["id"] ."'>". $sub["name"] ."</option>";
+                                }
+                            ?>
                         </select>
                         <p class="aclaration">(Selecciona antes el colegio)</p>
                     </div>
                     <div class="form-group">
                         <label for="profesor">Profesor: </label>
                         <select class="form-control" name="profesor" id="profesor" required>
+                            <?= "<option value='". $this->uei["profesor"] ."'>". $this->uei["profesorName"] ."</option>" ?>
                             <option value="">Seleccionar...</option>
+                            <?php 
+                                foreach($this->profesors as $prof){
+                                    echo "<option value='". $prof["rfc"] ."'>". $prof["name"] ."</option>";
+                                }
+                            ?>
                         </select>
                         <p class="aclaration">(Selecciona antes el colegio o la asignatura)</p>
                     </div>
                 </div>
                 <div class="col-md-12">
-                    <button type="submit" class="btn btn-primary btn-block">Actualizar</button>
+                    <button id="updateButton" type="submit" class="btn btn-primary btn-block">Actualizar</button>
                     <br><br><br><br>
                 </div>
-            </div>
+            </form>
         </section>
         <?php include_once("structure/views/footer.php"); ?>
     </div>
@@ -300,6 +300,164 @@
     
       reader.readAsDataURL(e.target.files[0]);
       $("#photoName").html(e.target.files[0].name);
+    }
+
+    async function getData(type,college_id){
+      try{
+        const response = await fetch(Generalconfig.url + "procedures/get" + type + "/" + college_id);
+        if(response.ok){
+          return await response.json(); 
+        }else{
+          throw new Error("Error al cargar datos de este colegio");
+        }
+      }catch(e){
+        console.log(e);
+      }
+
+      return null;
+    }
+
+    function putSubjects(subjects){
+      if(subjects.success){
+        $("#subject").empty();
+        subjects.data.forEach( subject => {
+          $("#subject").append(`
+            <option value="${subject.id}">${subject.name}</option>
+          `);
+        });
+      }else{
+        swal({
+          "title": "Error de carga de datos",
+          "text": "Ocurrio un error al cargar las asignaturas: " + subjects.errors,
+          "icon": "error",
+          "button": ["Oh noo!"]
+        });
+      }
+    }
+
+    function putProfesors(profesors){
+      if(profesors.success){
+        $("#profesor").empty();
+        profesors.data.forEach( profesor => {
+          $("#profesor").append(`
+            <option value="${profesor.rfc}">${profesor.name}</option>
+          `);
+        });
+      }else{
+        swal({
+          "title": "Error de carga de datos",
+          "text": "Ocurrio un error al cargar los profesores: " + profesors.errors,
+          "icon": "error",
+          "button": ["Oh noo!"]
+        });
+      }
+    }
+
+    $("#college").on("change", async function (){
+      const college_id = $(this).val();
+      const subjects = await getData("Subjects",college_id);
+      putSubjects(subjects);
+      const profesors = await getData("Profesors",college_id);
+      putProfesors(profesors);
+    });
+
+    $("#subject").on("change", async function(){
+      const college_id = $("#college").val();
+      if(college_id != ""){
+        const subject_id = $(this).val();
+        const profesors = await getData("Profesors", college_id + "/" + subject_id);
+        putProfesors(profesors);
+      }else{
+        swal({
+          "title": "Primero debes seleccionar un colegio",
+          "icon": "warning",
+          "button": "ok"
+        });
+      }
+    });
+
+    $("#dataUpdate").on("submit", async function (e){
+        e.preventDefault();
+        $("#updateButton").attr("disabled", "disabled");
+        $("#updateButton").val("Envando Datos...");
+        let data = getFiles();
+            data = getFormData("dataUpdate",data);
+        const result = await makeUpdate(data);
+        console.log(result);
+        manageUpdateResponse(result);
+    });
+
+    async function makeUpdate(data){
+      try{
+        $("#updateButton").val("Actualizando...");
+        const response = await fetch(Generalconfig.url + 'procedures/updateStudent', {
+          method: 'POST',
+          body: data
+        });
+        
+        if(response.ok){
+          return await response.json();
+        }else{
+          throw new Error("Error al procesar los datos enviados para actualizar");
+        }
+      }catch(e){
+        console.log(e);
+      }
+    }
+
+    function manageUpdateResponse(res){
+      if(res != null){
+        if(res.success){
+          console.log(res.messages);
+          swal({
+            "title": "Actualización Exitosa!",
+            "text": "Tus datos han sido actualizados de forma correcta.",
+            "icon": "success",
+            "button": "ok"
+          }).then( () => {
+            window.location = res.onSuccessEvent;
+          });
+        }else{
+          $("#updateButton").removeAttr("disabled");
+          $("#updateButton").val("Actualizar");
+          console.log(res.errors);
+          swal({
+            "title": "Error de actualización",
+            "text": res.messages,
+            "icon": "error",
+            "button": "ok"
+          });
+        }
+      }else{
+        throw new Error("Hubo un error al intentar Actualizar tus datos");
+      }
+    }
+
+    function getFiles(){
+      var idFiles=document.getElementById("file");
+      // Obtenemos el listado de archivos en un array
+      var archivos = idFiles.files;
+      // Creamos un objeto FormData, que nos permitira enviar un formulario
+      // Este objeto, ya tiene la propiedad multipart/form-data
+      var data=new FormData();
+      // Recorremos todo el array de archivos y lo vamos añadiendo all
+      // objeto data
+      // Al objeto data, le pasamos clave,valor
+      data.append("photo",archivos[0]);
+      return data;
+    }
+    
+    function getFormData(id,data){
+      $("#"+id).find("input,select").each(function(i,v) {
+            if(v.type!=="file") {
+                if(v.type==="checkbox" && v.checked===true) {
+                    data.append(v.name,"on");
+                }else{
+                    data.append(v.name,v.value);
+                }
+            }
+      });
+      return data;
     }
 
 </script>

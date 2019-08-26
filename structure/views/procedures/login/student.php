@@ -2,16 +2,19 @@
     <div class="margen">
         <div class="title col-md-12">
             <div class="logo-cont">
-                <!-- <img src="<?= constant("CONFIG")["url"] ?>resources/images/unamN.png"> -->
+                <img src="<?= constant("CONFIG")["url"] ?>resources/images/unamN.png">
                 <img src="<?= constant("CONFIG")["url"] ?>resources/images/jovenes.png">
                 <!-- <img src="<?= constant("CONFIG")["url"] ?>resources/images/leopardos.png"> -->
             </div>
-            <h2>Login - Alumnos</h2>
+            <br>
+            <h4>Iniciar sesión</h4>
+            <h2> Alumnos | <b>P<?= $_SESSION['campus'] ?></b></h2>
             <hr>
             <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                Los datos para ingresar son tu número de cuenta como usuario y tu fecha de nacimiento como contraseña
+                en formato ddmmaaaa.
             </p>
+            <br>
         </div>
         <div id="debugger" class="col-md-12"></div>
         <div class="col-md-12">

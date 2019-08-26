@@ -8,10 +8,10 @@
     width:100%;
     justify-content:flex-end !important;
     align-items:center;
-    padding:5px 4%;
-    // background-color:var(--blue-unam);
+    padding:0px 4%;
+    background-color:var(--blue-unam);
     // border-bottom:3px solid #BB8800;
-    background-color:rgba(25, 52, 85, 0.7);
+    // background-color:rgba(25, 52, 85, 0.7);
 
     // @include googleShadow();
 
@@ -57,20 +57,6 @@
         width:35px;
         height:35px;
         cursor:pointer;
-    }
-
-    .user-photo{
-        width:40px;
-        height:40px;
-        border-radius:50%;
-        margin:0px 20px;
-        border:3px solid #BB8800;
-
-        display:none;
-
-        @media screen and (min-width: 767px){
-            display:block;
-        }
     }
 
     .nav_links{
@@ -139,5 +125,19 @@
                 font-weight:bold;
             }
         }
+    }
+}
+
+.user-photo{
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    margin:0px 20px;
+    border:3px solid #BB8800;
+
+    display:none;
+
+    @media screen and (min-width: 767px){
+        display:block;
     }
 }

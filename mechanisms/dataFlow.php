@@ -149,12 +149,52 @@ class User{
 
 class Profesor extends User{
     public $rfc;
-    public $profesion;
-    public $nivelDeEstudios;
-    public $fechaIngreso;
+    public $profession;
+    public $education;
+    public $startDate;
+    public $phoneOffice;
     public $materias;
     public $grupos;
-    public $direccion;
+
+    public function setRfc(string $rfc){
+        $this->rfc = $rfc;
+    }
+
+    public function getRfc(){
+        return $this->rfc;
+    }
+
+    public function setProfession($pro){
+        $this->profession = $pro;
+    }
+
+    public function getProfession(){
+        return $this->profession;
+    }
+
+    public function setEducation($edu){
+        $this->education = $edu;
+    }
+
+    public function getEduction(){
+        return $this->education;
+    }
+
+    public function setStartDate($date){
+        $this->startDate = $date;
+    }
+
+    public function getStartDate(){
+        return $this->startDate;
+    }
+
+    public function setPhoneOffice($phone){
+        $this->phoneOffice = $phone;
+    }
+
+    public function getPhoneOffice(){
+        return $this->phoneOffice;
+    }
 }
 
 class Student extends User{

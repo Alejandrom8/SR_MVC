@@ -29,12 +29,22 @@
         line-height:4rem;
         width:80%;
         position:absolute;
-
+        
         animation-name:translate;
         animation-duration:3s;
 
         @media screen and (max-width:767px){
-            font-size:2.5rem;
+            font-size:2.3rem;
+            font-weight: bold;
         }
+    }
+}
+
+#aperture.profesor{
+    height:60vh;
+    background-color:#111;
+
+    h1{
+        color:#fff;
     }
 }

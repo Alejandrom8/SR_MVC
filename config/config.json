@@ -2,13 +2,13 @@
     "local": "http://localhost/",
     "url": "http://localhost/SR_MVC/",
     "photoPath": "http://localhost/srjhiData/fotos/",
+    "adminPass": "232f9ba1fbcf7d7809ca79b4354eea85c6fd50fe9690881267f7fab053f7c121167174b0d5a6be5eacb01fc479d3eb201a9dee3c26367d72a347ac31bf99eb8c",
     "database": {
         "user": "root",
         "password": "Alejandrom8",
         "host": "localhost",
         "charset": {
-            "prepa_2_charset": "utf8",
-            "prepa_6_charset": "utf8",
+            "prepa_1_charset": "utf8",
             "prepa_8_charset": "utf8"
         }
     },
@@ -31,13 +31,9 @@
     },
     "campus": {
         "registredCampus": {
-            "p2":{
-                "plantel":2,
-                "nombre": "ERASMO CASTELLANOS QUINTO"
-            },
-            "p6":{
-                "plantel":6,
-                "nombre": "ANTONIO CASO"
+            "p1":{
+                "plantel":1,
+                "nombre": "GABINO BARREDA"
             },
             "p8":{
                 "plantel":8,
@@ -45,14 +41,6 @@
             }
         },
         "logo": {
-            "p2": {
-                "width": 17,
-                "height": 4
-            },
-            "p6": {
-                "width": 20,
-                "height": 15
-            },
             "p8": {
                 "width": 20,
                 "height": 15

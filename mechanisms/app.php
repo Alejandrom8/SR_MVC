@@ -24,7 +24,7 @@ class App{
     $this->user   = $_SESSION['user'];
     $this->campus = $_SESSION['campus'];
     $this->url    = isset($_GET['url']) ? $_GET['url'] : null;
-    $permitedSections = ['goout', 'login', 'registro', 'welcome', 'procedures'];
+    $permitedSections = ['goout', 'login', 'registro', 'welcome', 'procedures', 'admon'];
     
     $u = rtrim($this->url, '/');
     $u = explode('/', $u);
@@ -99,4 +99,11 @@ class App{
     return true;
   }
 
+  public static function makeItLegible(array $errorMessages){
+    $string = count($errorMessages) > 0 ? "Se presentaron las siguientes situaciónes (". count($errorMessages) ."): \n" : "No se presento ningun error";
+    foreach($errorMessages as $key => $error){
+        $string .= "Proceso " . $key + 1 . ": $error \n" . PHP_EOL;
+    }
+    return $string;
+  }
 }

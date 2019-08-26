@@ -4,9 +4,12 @@
 }
 
 .container-own {
+  background-image: url(../images/unambiblio2.jpg);
+  background-size: cover;
   position: absolute;
   width: 100%;
   height: auto;
+  min-height: 100%;
   padding: 2%;
 }
 @media screen and (min-width: 767px) {
@@ -101,6 +104,11 @@
 }
 .regist-container .frame {
   border: 1px solid #777;
+}
+.regist-container #registButton {
+  width: 50%;
+  height: 5vh;
+  font-family: "opensans bold";
 }
 
 #regist-forms {
@@ -231,6 +239,15 @@
   list-style: none;
   font-size: 0.8rem;
   color: #444;
+}
+
+.beeper-label {
+  position: absolute;
+  top: 0;
+  left: 6vw;
+  padding: 1.1% 4%;
+  font-family: "opensans bold";
+  z-index: 0;
 }
 
 #menu {

@@ -1,0 +1,313 @@
+#menu {
+  display: flex;
+  position: fixed;
+  z-index: 10;
+  width: 100%;
+  justify-content: flex-end !important;
+  align-items: center;
+  padding: 0px 4%;
+  background-color: var(--blue-unam);
+}
+#menu h3, #menu h4, #menu h5, #menu h6 {
+  color: #fff;
+  font-family: "opensans bold";
+  padding: 5px 10px;
+}
+#menu span {
+  color: #fff;
+  font-family: "opensans";
+  padding: 5px 10px;
+  font-weight: bold;
+  font-size: 0.8rem;
+  letter-spacing: 0.1rem;
+  display: none;
+}
+@media screen and (min-width: 767px) {
+  #menu span {
+    display: block;
+  }
+}
+#menu li, #menu a, #menu button {
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none;
+}
+#menu .nav_logos {
+  margin-right: auto !important;
+  list-style: none;
+}
+#menu .nav_logos li {
+  display: inline-block;
+  padding: 0px 12.5px;
+  padding-top: 5%;
+}
+#menu .logo {
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+}
+#menu .nav_links {
+  list-style: none;
+}
+#menu .nav_links li {
+  display: inline-block;
+  padding: 0px 20px;
+  padding-top: 3%;
+}
+#menu .nav_links li a {
+  color: #eee;
+}
+#menu button.btn {
+  padding: 2px 6px;
+  border: 0;
+  border-radius: 10px;
+  color: #fff;
+  cursor: pointer;
+}
+#menu #movibleSection {
+  position: absolute;
+  top: 9vh;
+  right: -100vw;
+  width: 100vw;
+  height: 91vh;
+  background-color: #eee;
+  padding: 20px;
+  transition: all 0.2s;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 9px 0px;
+  -moz-box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 9px 0px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 9px 0px;
+}
+@media screen and (min-width: 767px) {
+  #menu #movibleSection {
+    width: 26vw;
+    top: 10vh;
+    height: 90vh;
+  }
+}
+#menu #movibleSection a {
+  width: 100%;
+  display: inline-block;
+  color: #222;
+  outline: none;
+  border-bottom: 2px solid #aaa;
+}
+#menu #movibleSection a button {
+  width: 100%;
+  text-align: left;
+  padding: 15px 20px;
+  background: #dedede;
+  border: 0;
+  font-family: "opensans";
+}
+#menu #movibleSection a :hover {
+  background-color: var(--green-cool);
+  color: #fff;
+  font-weight: bold;
+}
+
+.user-photo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin: 0px 20px;
+  border: 3px solid #BB8800;
+  display: none;
+}
+@media screen and (min-width: 767px) {
+  .user-photo {
+    display: block;
+  }
+}
+
+#app {
+  position: absolute;
+  top: 8%;
+  width: 100%;
+  height: auto;
+}
+#app aside {
+  width: 20%;
+  height: auto;
+  float: left;
+  min-height: 92vh;
+  background: #1488CC;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #2B32B2, #1488CC);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #2B32B2, #1488CC);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  padding: 1% 0;
+  border-radius: 5px;
+  overflow: hiiden;
+}
+#app aside .table {
+  color: #fff;
+}
+#app aside .table thead {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+#app aside .table .arrow-right {
+  width: 0;
+  height: 0;
+  border-top: 60px solid transparent;
+  border-bottom: 60px solid transparent;
+  border-left: 60px solid green;
+}
+#app aside .table th {
+  border-spacing: 0;
+  border-top: 0;
+  border-collapse: unset;
+}
+#app aside .table tr {
+  border-spacing: 0;
+  border-top: 0;
+  border-collapse: unset;
+  position: relative;
+}
+#app aside .table tr :hover {
+  background-color: #fff;
+  color: #222;
+  cursor: pointer;
+}
+#app aside .table tr :active {
+  font-family: "opensans bold";
+}
+#app aside .table tr :active :after {
+  content: "";
+  position: absolute;
+  top: 20%;
+  left: 100%;
+  margin-left: -16px;
+  width: 0;
+  height: 0;
+  border-right: solid 16px #333;
+  border-top: solid 15px transparent;
+  border-bottom: solid 15px transparent;
+}
+#app .window {
+  width: 80%;
+  height: 92vh;
+  max-height: 92vh;
+  overflow-y: scroll;
+  display: none;
+  float: left;
+  padding: 4%;
+}
+#app .window h1, #app .window h2, #app .window h3, #app .window h4, #app .window h5 {
+  font-family: "opensans bold";
+}
+#app .window .statistics-table {
+  margin: 4%;
+  width: 92%;
+}
+#app .window .statistics-table .table-head {
+  background: #00F260;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #0575E6, #00F260);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #0575E6, #00F260);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  font-weight: bold;
+  font-size: 0.9rem;
+  color: #fff;
+  width: 100%;
+  padding: 1% 5%;
+  border-radius: 20px;
+}
+#app .window .statistics-table .table {
+  margin: 2% 0%;
+  width: 100%;
+}
+#app .window .downloadSection {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  align-content: center;
+  padding: 0% 4% 2% 4%;
+}
+#app .window .downloadSection span {
+  margin: 0 4%;
+}
+#app .window .explorer {
+  width: 100%;
+  padding: 4%;
+}
+#app .window .explorer .form-control {
+  width: 90%;
+  height: 5%;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  padding: 1.5% 4%;
+  font-family: "opensans";
+  font-size: 1.1rem;
+}
+#app .window .explorer .input-group-append {
+  width: 10%;
+}
+#app .window #registCampus {
+  margin: 3% 5%;
+  width: 90%;
+  padding: 3%;
+  border: 2px solid;
+  border-image-source: linear-gradient(45deg, #008f68, #fae042);
+  border-image-slice: 1;
+  border-radius: 5px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 9px 0px;
+  -moz-box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 9px 0px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 9px 0px;
+}
+#app #results {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #fff;
+  min-height: 70vh;
+}
+#app #results .loader {
+  width: 30%;
+  height: 30%;
+}
+#app .instructions {
+  color: #777;
+}
+
+.adjuster {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 11;
+}
+.adjuster #report {
+  width: 80%;
+  height: auto;
+  background-color: #201e1e;
+  color: #fff;
+  margin: 0 auto;
+  padding: 4%;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 9px 0px;
+  -moz-box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 9px 0px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 9px 0px;
+}
+.adjuster #report h3 {
+  text-align: center;
+}
+.adjuster #report #updateReportSection {
+  height: 40vh;
+  overflow: scroll;
+  line-height: 1.1rem;
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 3% 5%;
+}
+.adjuster #report .loader {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin: 4%;
+}
+
+/*# sourceMappingURL=admon.css.map */

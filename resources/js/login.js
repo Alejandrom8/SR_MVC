@@ -50,7 +50,7 @@ class LoginForm{
             if(data.errors === 202){//is not an error, this is when a user isn't registered.
                 window.location = data.onSuccessEvent;
             }else{
-                const issues = data.message;
+                const issues = data.messages;
                 console.log(data.errors);
                 debugSection.html(`<div id='error' class='alert alert-danger'>
                         <svg xmlns='https://www.w3.org/2000/svg' aria-hidden='true' focusable='false' width='16px' height='16px' viewBox='0 0 24 24' fill='currentColor'>

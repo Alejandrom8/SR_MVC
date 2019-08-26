@@ -36,6 +36,10 @@ $bar-height: 1.2vh;
     .frame{
         border:1px solid #777;
     }
+
+    #registButton{
+        width:50%;height:5vh;font-family:'opensans bold';
+    }
 }
 
 #regist-forms{
@@ -179,4 +183,13 @@ $bar-height: 1.2vh;
         font-size:0.8rem;
         color:#444;
     }
+}
+
+.beeper-label{
+    position:absolute;
+    top:0;
+    left: 6vw;
+    padding:1.1% 4%;
+    font-family:'opensans bold';
+    z-index:0;
 }

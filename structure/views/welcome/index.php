@@ -41,14 +41,15 @@
 						<div class="col-sm-12">
 							<form action="<?= constant("CONFIG")['url'] ?>procedures/setSession/" method="POST" id="link-options">
 								<div calss="form-group">
-									<label for="campus">Plantel</label>
+									<label for="campus">Tu plantel</label>
 									<select class="form-control" name="campus" id="campus">
 										<option value="">Seleccionar</option>
 										<?= $this->registredCampus ?>
 									</select>
 								</div>
+								<br>
 								<div calss="form-group">
-									<label for="user">Usuario</label>
+									<label for="user">Tipo de usuario</label>
 									<select class="form-control" name="user" id="user">
 										<option value="">Seleccionar</option>
 										<option value="student">Alumno</option>

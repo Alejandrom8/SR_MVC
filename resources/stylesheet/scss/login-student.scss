@@ -13,11 +13,24 @@
 .container-own{
 
     @extend %flex-container;
-
+    background-image:url(../images/unambiblio2.jpg);
+    background-size:cover;
     // margin-top:50px;
+    // background: #780206;  /* fallback for old browsers */
+    // background: -webkit-linear-gradient(to right, #061161, #780206);  /* Chrome 10-25, Safari 5.1-6 */
+    // background: linear-gradient(to right, #061161, #780206); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    // background-image: linear-gradient(to left, #30cfd0 0%, #330867 100%);
+// background: #5433FF;  /* fallback for old browsers */
+// background: -webkit-linear-gradient(to left, #A5FECB, #20BDFF, #5433FF);  /* Chrome 10-25, Safari 5.1-6 */
+// background: linear-gradient(to left, #A5FECB, #20BDFF, #5433FF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+// background: var(--blue-unam);  /* fallback for old browsers */
+// background: -webkit-linear-gradient(to right, var(--blue-unam), #ffd452);  /* Chrome 10-25, Safari 5.1-6 */
+// background: linear-gradient(to right,var(--blue-unam) 50%, #ffd452 50%); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
     position: absolute;
     width:100%;
     height:auto;
+    min-height:100%;
     padding:2%;
 
     @media screen and (min-width: $breackpointOne){

@@ -9,15 +9,44 @@
     margin:0;
     padding:0;
 }
-
+.row{
+    margin:0;
+    padding:0;
+}
 .webpage{
     width:100%;
     height:auto;
 }
 
+.window{
+    width:96%;
+    height:auto;
+    margin:2%;
+    // margin-top:4%;
+    padding:4%;
+    background-color:#fff;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 9px 0px;
+    -moz-box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 9px 0px;
+    box-shadow:rgba(0, 0, 0, 0.2) 0px 3px 9px 0px;
+
+    h4{
+        font-weight:bold;
+    }
+    
+}
+
 @import 'menuMobil';
 @import 'aperture';
 @import 'options';
+@import 'webapp';
 @import 'footer';
 
 @import 'update';
+
+.title-block{
+    width:100%;
+    padding:3%;
+    font-size:2rem;
+    font-family:'opensans bold';
+    text-align:center;
+}

@@ -4,9 +4,28 @@
   padding: 0;
 }
 
+.row {
+  margin: 0;
+  padding: 0;
+}
+
 .webpage {
   width: 100%;
   height: auto;
+}
+
+.window {
+  width: 96%;
+  height: auto;
+  margin: 2%;
+  padding: 4%;
+  background-color: #fff;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 9px 0px;
+  -moz-box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 9px 0px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 9px 0px;
+}
+.window h4 {
+  font-weight: bold;
 }
 
 #menu {
@@ -16,8 +35,8 @@
   width: 100%;
   justify-content: flex-end !important;
   align-items: center;
-  padding: 5px 4%;
-  background-color: rgba(25, 52, 85, 0.7);
+  padding: 0px 4%;
+  background-color: var(--blue-unam);
 }
 #menu h3, #menu h4, #menu h5, #menu h6 {
   color: #fff;
@@ -56,19 +75,6 @@
   width: 35px;
   height: 35px;
   cursor: pointer;
-}
-#menu .user-photo {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  margin: 0px 20px;
-  border: 3px solid #BB8800;
-  display: none;
-}
-@media screen and (min-width: 767px) {
-  #menu .user-photo {
-    display: block;
-  }
 }
 #menu .nav_links {
   list-style: none;
@@ -129,6 +135,20 @@
   font-weight: bold;
 }
 
+.user-photo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin: 0px 20px;
+  border: 3px solid #BB8800;
+  display: none;
+}
+@media screen and (min-width: 767px) {
+  .user-photo {
+    display: block;
+  }
+}
+
 @keyframes translate {
   from {
     margin-left: -80%;
@@ -161,47 +181,141 @@
 }
 @media screen and (max-width: 767px) {
   #aperture h1 {
-    font-size: 2.5rem;
+    font-size: 2.3rem;
+    font-weight: bold;
   }
 }
 
-#options {
-  width: 100%;
-  min-height: 100%;
-  height: 65vh;
-  padding: 5% 10%;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  margin: 0;
+#aperture.profesor {
+  height: 60vh;
+  background-color: #111;
 }
-#options .card {
-  width: 350px;
-  height: auto;
-  background-color: #eee;
+#aperture.profesor h1 {
+  color: #fff;
+}
+
+#options {
+  display: block;
+  width: 100%;
+  padding: 0 3%;
+}
+#options .window {
+  max-width: 29%;
   border: 0;
-  padding: 1% 1.5%;
-  margin: 0% 5%;
-  -webkit-box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 9px 0px;
-  -moz-box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 9px 0px;
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 9px 0px;
   display: inline-block;
 }
 @media screen and (max-width: 767px) {
+  #options .window {
+    display: block;
+    max-width: 100%;
+    margin-top: 4%;
+  }
+}
+@media screen and (max-width: 767px) {
   #options {
-    height: auto;
+    display: block;
+    justify-content: none;
   }
-  #options .card {
-    width: 100%;
-    height: 40%;
-    margin: 5% 0;
-  }
+}
+
+#webapp {
+  width: 100%;
+  height: 150vh;
+}
+#webapp aside {
+  width: 20%;
+  height: 100%;
+  background: #1488CC;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #2B32B2, #1488CC);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #2B32B2, #1488CC);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  float: left;
+  padding: 3% 1%;
+  color: #fff;
+}
+#webapp aside table.table {
+  width: 100%;
+  color: #fff;
+}
+#webapp aside table.table tr, #webapp aside table.table th {
+  border-spacing: 0;
+  border-top: 0;
+  border-collapse: unset;
+}
+#webapp aside table.table tr:hover {
+  border: 0;
+  background-color: #fff;
+  cursor: pointer;
+  color: #222;
+}
+#webapp .app {
+  width: 80%;
+  height: 100%;
+  float: left;
+  overflow-y: scroll;
+  padding: 5% 2%;
+}
+#webapp .app .section-window {
+  display: none;
+  padding-bottom: 10%;
+  width: 100%;
+}
+#webapp .app .btn-withe {
+  background-color: #fff;
+  color: #222;
+  font-weight: bold;
+  border-radius: 50px;
+  border: 2px solid #222;
+}
+#webapp .app .window.col-md-5 {
+  border-bottom: 10px solid;
+  border-image-source: linear-gradient(45deg, #008f68, #fae042);
+  border-image-slice: 1;
+}
+#webapp #students {
+  border: 0;
+  outline: none;
+  border-radius: 10px;
+  overflow: hidden;
+  max-height: 40vh;
+  font-size: 0.9rem;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 9px 0px;
+  -moz-box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 9px 0px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 9px 0px;
+}
+#webapp #students thead {
+  background: #FF0099;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #493240, #FF0099);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #493240, #FF0099);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  color: #fff;
+  font-family: "opensans";
+}
+#webapp #students tbody {
+  color: #666;
+  overflow-y: scroll;
+}
+#webapp #students tbody .table-striped tbody tr:nth-of-type(2n+1) {
+  background-color: rgba(0, 0, 0, 0.01);
+}
+
+#preview {
+  width: 50%;
+  height: 60%;
+}
+#preview img {
+  width: 100%;
+  height: 100%;
 }
 
 #footer {
   width: 100%;
-  background: #444;
-  padding: 5% 5%;
+  background: #333333;
+  padding: 4% 5%;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -211,10 +325,14 @@
 }
 #footer h4 {
   font-family: "opensans bold";
-  line-height: 4rem;
+  line-height: 3.5rem;
+  font-size: 1.5rem;
 }
 #footer nav ul li {
   list-style: none;
+}
+#footer p, #footer li {
+  font-size: 0.9rem;
 }
 #footer .agr {
   width: 33.33%;
@@ -239,8 +357,8 @@
 }
 #update-section #close-button {
   position: absolute;
-  top: 0.5%;
-  right: 10.5%;
+  top: 6%;
+  right: 5.5%;
   width: 30px;
   height: 30px;
   border: 0;
@@ -252,7 +370,7 @@
 #update-section .cont {
   padding: 4%;
   width: 90%;
-  height: 100%;
+  height: 90%;
   background: #fff;
   border-top: 40px solid var(--blue-unam);
   overflow-y: scroll;
@@ -284,6 +402,22 @@
 }
 #update-section .cont .second, #update-section .cont .third, #update-section .cont .fourth {
   padding: 4% 2%;
+}
+#update-section #preview {
+  width: 50%;
+  height: 60%;
+}
+#update-section #preview img {
+  width: 100%;
+  height: 100%;
+}
+
+.title-block {
+  width: 100%;
+  padding: 3%;
+  font-size: 2rem;
+  font-family: "opensans bold";
+  text-align: center;
 }
 
 /*# sourceMappingURL=home.css.map */

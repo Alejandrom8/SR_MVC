@@ -1,0 +1,41 @@
+.adjuster{
+    width: 100%;
+    height:100%;
+    position:fixed;
+    background-color:rgba(0,0,0,0.2);
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+    z-index:11;
+
+    #report{
+        width:80%;
+        height:auto;
+        // background-color:#1a141e;
+        background-color:#201e1e;
+        color:#fff;
+        margin:0 auto;
+        padding:4%;
+        
+        h3{
+            text-align: center;
+        }
+
+        @include googleShadow();
+
+        #updateReportSection{
+            height:40vh;
+            overflow:scroll;
+            line-height:1.1rem;
+            background-color:rgba(0,0,0,0.3);
+            padding:3% 5%;
+        }
+
+        .loader{
+            width:60px;
+            height:60px;
+            border-radius:50%;
+            margin:4%;
+        }
+    }
+}

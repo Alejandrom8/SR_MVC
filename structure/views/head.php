@@ -19,6 +19,6 @@
 
 <script src="<?= constant("CONFIG")["url"] ?>config/config.js"></script>
 <script src="<?= constant("CONFIG")["url"] ?>resources/frameworks/jquery-3.3.1.min.js"></script>
-<script src="<?= constant("CONFIG")["url"] ?>resources/frameworks/queryLoading2.min.js"></script>
-<script src="<?= constant("CONFIG")["url"] ?>resources/frameworks/Loader.js"></script>
+<!-- <script src="<?= constant("CONFIG")["url"] ?>resources/frameworks/queryLoading2.min.js"></script> -->
+<!-- <script src="<?= constant("CONFIG")["url"] ?>resources/frameworks/Loader.js"></script> -->
 <script src="<?= constant("CONFIG")["url"] ?>resources/frameworks/sweetalert/dist/sweetalert.min.js"></script>

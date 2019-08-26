@@ -12,14 +12,14 @@
                       <div>
                         <p>
                           Revisa tus datos, confirma que tu grado y grupo sean correctos, de no ser así,
-                          podras modificar manualmente únicamente tu grado y grupo dando click en este boton:
+                          podrás modificar únicamente tu grado y grupo dando click en este botón:
                         </p>
                         <p>
-                          Nota: esta modificacón solo será usada en el contexto de este programa
+                          Nota: esta modificación solo será usada en el contexto de este programa.
                         </p>
                         <button class="btn btn-info" id="letChange">
                           ¿Tu grado o grupo son incorrectos? 
-                          <span>click aqui</span>
+                          <span>click aquí</span>
                         </button>
                       </div>
                     </div>
@@ -35,7 +35,7 @@
                         value="<?=$this->student->bornDate?>" readonly>
                       </div>
                       <div class="form-group">
-                        <label for="accaunt">No de cuenta: </label>
+                        <label for="accaunt">No. de cuenta: </label>
                         <input type="text" name="accaunt" id="accaunt" class="form-control"
                         value="<?=$this->student->nocta?>" readonly>
                       </div>
@@ -100,7 +100,7 @@
                     </div>
                     <div class="col-md-6">
                       <div class="form-group">
-                          <label for="turn">Turno en el que estas actualmente: </label>
+                          <label for="turn">Turno en el que estás actualmente: </label>
                           <select id="turn" name="turn" class="form-control">
                             <option value="">Seleccionar...</option>
                             <option value="0">Matutino</option>
@@ -199,7 +199,7 @@
                           </div>
                     </div><!-- Ends col-md-6  -->
                     <div class="col-md-6">
-                        <h5>4:  Otros datos</h5>
+                        <h5>4. Otros datos</h5>
                         <br/>
                         <div class="form-group">
                               <label for="tutor">Nombre del Padre o Tutor: </label>
@@ -233,7 +233,7 @@
             <!-- Add Pagination -->
             <div class="swiper-pagination"></div>
             <button class="btn btn-primary swiper-button-next">siguiente</button>
-            <button class="btn btn-primary swiper-button-prev">atras</button>
+            <button class="btn btn-primary swiper-button-prev">atrás</button>
         </div><!-- Ends swiper container -->
     </section>
 </div><!-- Ends regist container -->
@@ -279,8 +279,8 @@
       if(res != null){
         if(res.success){
           swal({
-            "title": "Registro Exitoso!",
-            "text": "Te has registrado exitosamente, seras redireccionado a la página de inicio",
+            "title": "!Registro Exitoso!",
+            "text": "Te has registrado exitosamente, seras redireccionad@ a la página de inicio.",
             "icon": "success",
             "button": "ok"
           }).then( () => {

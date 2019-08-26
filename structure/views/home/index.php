@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
     <?php include_once("structure/views/head.php"); ?>
-    <title>Document</title>
+    <title>Hola</title>
 </head>
 <body>
-    
+    Adios
 </body>
 </html>

@@ -1,8 +1,8 @@
 #footer{
     width:100%;
     // background-color:var(--blue-unam);
-    background:#444;
-    padding:5% 5%;
+    background: #333333;
+    padding:4% 5%;
     display:flex;
     justify-content: space-around;
     align-items:center;
@@ -13,11 +13,16 @@
     
     h4{
         font-family:'opensans bold';
-        line-height:4rem;
+        line-height:3.5rem;
+        font-size:1.5rem;
     }
 
     nav ul li{
         list-style: none;
+    }
+
+    p, li{
+        font-size:0.9rem;
     }
 
     .agr{
