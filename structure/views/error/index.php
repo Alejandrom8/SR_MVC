@@ -47,9 +47,9 @@
     <div class="cont">
         <div class="margen">
             <h2>Error</h2>
-            <a href="<?= constant("CONFIG")["url"] ?>">Inicio</a>
+            <a href="<?= constant("URL") ?>">Inicio</a>
             <p style="padding:4%;"><?= $this->message ?><p>
-            <img style="margin:4%;border-radius:5px;" src="<?= constant("CONFIG")["url"] ?>resources/images/gato_triste.png" width="200px" height="250px">
+            <img style="margin:4%;border-radius:5px;" src="<?= constant("URL") ?>resources/images/gato_triste.png" width="200px" height="250px">
         </div>
     </div>
 </body>

@@ -1,3 +1,48 @@
+@keyframes translate {
+  from {
+    margin-left: -80%;
+  }
+  to {
+    margin-left: 0;
+  }
+}
+#aperture {
+  width: 100%;
+  height: 80vh;
+  background-color: #fff;
+  background-size: cover;
+  background-attachment: fixed;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 5%;
+  padding-top: 8%;
+}
+#aperture h1 {
+  color: #111;
+  font-family: "opensans bold";
+  font-size: 3rem;
+  line-height: 4rem;
+  width: 80%;
+  position: absolute;
+  animation-name: translate;
+  animation-duration: 3s;
+}
+@media screen and (max-width: 767px) {
+  #aperture h1 {
+    font-size: 2.3rem;
+    font-weight: bold;
+  }
+}
+
+#aperture.profesor {
+  height: 60vh;
+  background-color: #111;
+}
+#aperture.profesor h1 {
+  color: #fff;
+}
+
 #menu {
   display: flex;
   position: fixed;
@@ -40,6 +85,9 @@
   display: inline-block;
   padding: 0px 12.5px;
   padding-top: 5%;
+}
+#menu .nav_logos dl, #menu .nav_logos ol, #menu .nav_logos ul {
+  margin: 0;
 }
 #menu .logo {
   width: 35px;
@@ -104,6 +152,11 @@
   color: #fff;
   font-weight: bold;
 }
+#menu .logoTitle {
+  font-size: 1.1rem;
+  font-family: "opensans bold";
+  font-weight: bold;
+}
 
 .user-photo {
   width: 40px;
@@ -120,31 +173,25 @@
 }
 
 #app {
-  position: absolute;
-  top: 8%;
   width: 100%;
-  height: auto;
+  height: 150vh;
 }
 #app aside {
   width: 20%;
-  height: auto;
+  height: 100%;
   float: left;
   min-height: 92vh;
-  background: #1488CC;
+  background: #9D50BB;
   /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #2B32B2, #1488CC);
+  background: -webkit-linear-gradient(to right, #6E48AA, #9D50BB);
   /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #2B32B2, #1488CC);
+  background: linear-gradient(to right, #6E48AA, #9D50BB);
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  padding: 1% 0;
-  border-radius: 5px;
+  padding: 3% 1%;
   overflow: hiiden;
 }
 #app aside .table {
   color: #fff;
-}
-#app aside .table thead {
-  background-color: rgba(0, 0, 0, 0.1);
 }
 #app aside .table .arrow-right {
   width: 0;
@@ -186,8 +233,8 @@
 }
 #app .window {
   width: 80%;
-  height: 92vh;
-  max-height: 92vh;
+  height: auto;
+  max-height: 150vh;
   overflow-y: scroll;
   display: none;
   float: left;
@@ -199,20 +246,6 @@
 #app .window .statistics-table {
   margin: 4%;
   width: 92%;
-}
-#app .window .statistics-table .table-head {
-  background: #00F260;
-  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #0575E6, #00F260);
-  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #0575E6, #00F260);
-  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  font-weight: bold;
-  font-size: 0.9rem;
-  color: #fff;
-  width: 100%;
-  padding: 1% 5%;
-  border-radius: 20px;
 }
 #app .window .statistics-table .table {
   margin: 2% 0%;
@@ -272,6 +305,33 @@
   color: #777;
 }
 
+.table-head {
+  background: #00F260;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #0575E6, #00F260);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #0575E6, #00F260);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  font-weight: bold;
+  font-size: 0.9rem;
+  color: #fff;
+  width: 100%;
+  padding: 1% 5%;
+  border-radius: 20px;
+}
+
+#CDP #concentrated h3, #CDP #concentrated h4 {
+  height: 15vh;
+  padding: 4% 0%;
+}
+#CDP #concentrated .tab-container {
+  margin-top: 10%;
+  margin-bottom: 10%;
+}
+#CDP #concentrated table {
+  border-bottom: 8px solid #333;
+}
+
 .adjuster {
   width: 100%;
   height: 100%;
@@ -308,6 +368,43 @@
   height: 60px;
   border-radius: 50%;
   margin: 4%;
+}
+
+#footer {
+  width: 100%;
+  background: #333333;
+  padding: 4% 5%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: #eee;
+  border-bottom: 5px solid #BB8800;
+  font-family: "opensans";
+}
+#footer h4 {
+  font-family: "opensans bold";
+  line-height: 3.5rem;
+  font-size: 1.5rem;
+}
+#footer nav ul li {
+  list-style: none;
+}
+#footer p, #footer li {
+  font-size: 0.9rem;
+}
+#footer .agr {
+  width: 33.33%;
+}
+#footer .logo-agr {
+  width: 100px;
+  height: 100px;
+}
+
+#menu {
+  position: relative;
+}
+#menu #movibleSection {
+  position: fixed;
 }
 
 /*# sourceMappingURL=admon.css.map */

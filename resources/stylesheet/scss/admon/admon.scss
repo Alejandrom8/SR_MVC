@@ -4,6 +4,15 @@
     box-shadow:rgba(0, 0, 0, 0.2) 0px 3px 9px 0px;
 }
 
+@import '../home/aperture.scss';
 @import '../home/menuMobil';
 @import 'basics';
 @import 'regist';
+@import '../home/footer';
+
+#menu{
+    position:relative;
+    #movibleSection{
+        position:fixed;
+    }
+}

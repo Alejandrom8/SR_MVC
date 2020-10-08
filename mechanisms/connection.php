@@ -10,7 +10,7 @@ class Connection {
     public $neutral;
 
     public function __construct($dataBase, $charset){
-        $config = constant("CONFIG")["database"];
+        $config = constant("databases");
         $this->user = $config["user"];
         $this->password = $config["password"];
         $this->host = $config["host"];

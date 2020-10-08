@@ -77,9 +77,9 @@ class Home extends Controller{
     public function getPhoto($id, $type){
         $photo = $this->model->getPhoto($id, $type);
         if($photo->data != null){
-            $path = constant("CONFIG")["photoPath"] . "p" . $this->getCampus() . "/" .  $photo->data;
+            $path = constant("photoPath") . "p" . $this->getCampus() . "/" .  $photo->data;
         }else{
-            $path = constant('CONFIG')['url'] . "resources/images/defaultPhoto.png";
+            $path = constant("URL") . "resources/images/defaultPhoto.png";
         }
 
         return $path;
@@ -125,14 +125,14 @@ class Home extends Controller{
 
                 $width = 110;
                 $middle = $width/2;
-                $photoPath = constant("CONFIG")["photoPath"] . "p" . $campus . "/" . $std->photo["name"];
+                $photoPath = constant("photoPath") . "p" . $campus . "/" . $std->photo["name"];
 
                 $pdf->image('resources/images/unamN.png',20,18,20);
                 $pdf->image('resources/images/jovenes.png', 180, 15, 16);
 
                 $text = utf8_decode('Dirección General de Divulgación de la Ciencia');
-                $text2 = utf8_decode('Jovenes Hacia La Investigación');
-                $text3 = 'Escuela Nacional Preparatoria Plantel '. $campus ;
+                $text2 = utf8_decode('Jóvenes Hacia la Investigación');
+                $text3 = 'Escuela Nacional Preparatoria Plantel No.'. $campus ;
                 $text4 = utf8_decode('Comprobante de inscripción al programa');
 
                 $pdf->SetFont('Arial','',10);
@@ -154,23 +154,23 @@ class Home extends Controller{
                 $pdf->text(115, 120, 'Fecha de registro');
                 $pdf->text(30, 195,  utf8_decode("Dirección"));
                 $pdf->text(146, 210, utf8_decode('Fecha de emisión'));
-                $pdf->image($photoPath, 40, 65, 35, 35);
+                $pdf->image($photoPath, 40, 70, 35, 35);
 
                 //Labels
                 $pdf->setFont('Arial', 'B', 10);
 
                     //Student data
-                    $pdf->text(30, 110, 'Nombre: ');//linea 1
-                    $pdf->text(30, 117, 'Fecha de nacimiento: ');
-                    $pdf->text(30, 123, utf8_decode('Número de cuenta: '));//linea 3
-                    $pdf->text(30, 129, 'Grado: ');//linea 4
-                    $pdf->text(30, 135, 'Grupo: ');//linea 5
-                    $pdf->text(30, 142, 'Turno: ');//...
+                    $pdf->text(30, 120, 'Nombre: ');//linea 1
+                    $pdf->text(30, 127, 'Fecha de nacimiento: ');
+                    $pdf->text(30, 134, utf8_decode('Número de cuenta: '));//linea 3
+                    $pdf->text(30, 141, 'Grado: ');//linea 4
+                    $pdf->text(30, 148, 'Grupo: ');//linea 5
+                    $pdf->text(30, 155, 'Turno: ');//...
                     //plus data
-                    $pdf->text(30,150, utf8_decode('Teléfono fijo: '));
-                    $pdf->text(30,157, utf8_decode('Teléfono celular: '));
-                    $pdf->text(30,164, utf8_decode('Correo electrónico: '));
-                    $pdf->text(30,171, utf8_decode('Nombre del padre o tutor: '));
+                    $pdf->text(30,162, utf8_decode('Teléfono fijo: '));
+                    $pdf->text(30,169, utf8_decode('Teléfono celular: '));
+                    $pdf->text(30,176, utf8_decode('Correo electrónico: '));
+                    $pdf->text(30,183, utf8_decode('Nombre del padre o tutor: '));
 
                     $pdf->setLineWidth(0.1);    
                     $pdf->line(20, 250, 195, 250);
@@ -185,25 +185,25 @@ class Home extends Controller{
                     $pdf->text(30,205,'Calle: ');
                     $pdf->text(30,212, 'Colonia: ');
                     $pdf->text(30,219, utf8_decode('Código postal: '));
-                    $pdf->text(30,226, utf8_decode('Delegación: '));
+                    $pdf->text(30,226, utf8_decode('Alcaldía: '));
                     $pdf->text(30,233,'Ciudad: ');
 
                 //Data
                 $pdf->setFont('Arial', '', 10);
                 
                     //Student data
-                    $pdf->text(50, 110, $this->stringFormat($std->name));//linea 1
-                    $pdf->text(69, 117, $std->bornDate);
-                    $pdf->text(67, 123, $std->accaunt);//linea 3
-                    $pdf->text(48, 129, $this->stringFormat($std->grade . "°"));//linea 4
-                    $pdf->text(48, 135, $std->group);
-                    $pdf->text(48, 142, $this->stringFormat($std->getStringTurn()));
+                    $pdf->text(50, 120, $this->stringFormat($std->name));//linea 1
+                    $pdf->text(69, 127, $std->bornDate);
+                    $pdf->text(67, 134, $std->accaunt);//linea 3
+                    $pdf->text(48, 141, $this->stringFormat($std->grade . "°"));//linea 4
+                    $pdf->text(48, 148, $std->group);
+                    $pdf->text(48, 155, $this->stringFormat($std->getStringTurn()));
 
                     //Plus data
-                    $pdf->text(60, 150, $std->phone);
-                    $pdf->text(65, 157, $std->mobil);
-                    $pdf->text(70, 164, $std->email);
-                    $pdf->text(80, 171, $this->stringFormat($std->tutor));
+                    $pdf->text(60, 162, $std->phone);
+                    $pdf->text(65, 169, $std->mobil);
+                    $pdf->text(70, 176, $std->email);
+                    $pdf->text(80, 183, $this->stringFormat($std->tutor));
 
                     //Area
                     $pdf->text(115,77,$this->stringFormat($std->college . " - " . $colName));
@@ -269,7 +269,7 @@ class Home extends Controller{
 
                     $width = 110;
                     $middle = $width/2;
-                    $photoPath = constant("CONFIG")["photoPath"] . "p" . $campus . "/" . $p->photo;
+                    $photoPath = constant("photoPath") . "p" . $campus . "/" . $p->photo;
 
                     $pdf->image('resources/images/unamN.png',20,18,20);
                     $pdf->image('resources/images/jovenes.png', 180, 15, 16);

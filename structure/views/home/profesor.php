@@ -3,8 +3,8 @@
 <title>Home</title>
     <?php include_once('structure/views/head.php'); ?>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="<?= constant("CONFIG")["url"] ?>resources/stylesheet/home.css">
-    <script src="<?= constant("CONFIG")["url"] ?>resources/frameworks/bootstrap/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="<?= constant("URL") ?>resources/stylesheet/home.css">
+    <script src="<?= constant("URL") ?>resources/frameworks/bootstrap/bootstrap.min.js"></script>
     <style>
         #concentrated.table{
             display:none;
@@ -107,9 +107,10 @@ $table = "<table id='concentrated' class='table table-bordered table-striped' st
     <div class="webpage">
         <header id="menu">
             <ul class="nav_logos">
-                <li><img class="logo" src="<?= constant("CONFIG")["url"] ?>resources/images/escudounam_blanco.png" alt="UNAM"></li>
-                <li><img class="logo" src="<?= constant("CONFIG")["url"] ?>resources/images/jovenesblanco.png" alt="UNAM"></li>
-                <li><img class="logo" src="<?= constant("CONFIG")["url"] ?>resources/images/leopardos.png" alt="UNAM"></li>
+                <li><img class="logo" src="<?= constant("URL") ?>resources/images/escudounam_blanco.png" alt="UNAM"></li>
+                <li><img class="logo" src="<?= constant("URL") ?>resources/images/jovenesblanco.png" alt="UNAM"></li>
+                <li><img class="logo" src="<?= constant("URL") ?>resources/images/leopardos.png" alt="UNAM"></li>
+                <li><span class="logoTitle">ENP <?= $_SESSION['campus'] ?></span></li>
             </ul>
             <span><?= $this->profesor->name ?></span>
             <img class="user-photo" src="<?= $this->profesor->photo ?>" alt="usuario">
@@ -118,11 +119,11 @@ $table = "<table id='concentrated' class='table table-bordered table-striped' st
             </button>
             <section id="movibleSection">
                 <a class="button-href" href="#"><button><i class="fas fa-home"></i> Inicio</button></a>
-                <a class="button-href" href="<?= constant("CONFIG")["url"] ?>goout"><button><i class="fas fa-sign-out-alt"></i> Salir</button></a>
+                <a class="button-href" href="<?= constant("URL") ?>goout"><button><i class="fas fa-sign-out-alt"></i> Salir</button></a>
             </section>
         </header>
         <section id="aperture" class="profesor">
-            <h1>Jóvenes Hacía la Investigación en Ciencias Experimentales</h1>
+            <h1>Jóvenes Hacía la Investigación en Ciencias Experimentales <?= $s0 ?></h1>
         </section>
         <section id="webapp">
             <aside>
@@ -142,7 +143,7 @@ $table = "<table id='concentrated' class='table table-bordered table-striped' st
                 </div>
                 <div id="proof" class="section-window">
                     <h2 class="title-block">Comprobante</h2>
-                    <embed src="<?= constant("CONFIG")["url"] ?>home/getProofOfRegistrationProfesor/<?= $_SESSION['campus']  . '/' . $_SESSION["user"] ?>" width="100%" height="100%">
+                    <embed src="<?= constant("URL") ?>home/getProofOfRegistrationProfesor/<?= $_SESSION['campus']  . '/' . $_SESSION["user"] ?>" width="100%" height="100%">
                 </div>
                 <div id="update" class="section-window">
                     <h2 class="title-block">Actualización de datos</h2>
@@ -162,7 +163,7 @@ $table = "<table id='concentrated' class='table table-bordered table-striped' st
                                                     <img src="<?= $this->profesor->photo ?>" width="60%" height="70%">
                                                     </label>
                                                 </center>
-                                                <input type="hidden" name="MAX_FILE_SIZE" value="<?= constant("CONFIG")["quantities"]['photoSize'] ?>" />
+                                                <input type="hidden" name="MAX_FILE_SIZE" value="<?= constant("quantities")['photoSize'] ?>" />
                                                 <div class="input-group" style="margin-top:10%;">
                                                     <div class="custom-file">
                                                         <input type="file" class="custom-file-input" id="file" name="file" aria-describedby="inputGroupFileAddon01">
@@ -206,7 +207,7 @@ $table = "<table id='concentrated' class='table table-bordered table-striped' st
                                 <div class="form-group">
                                         <label for="turn">Turno</label>
                                         <select name="turn" id="turn" class="form-control"  required>
-                                            <option value="<?= $this->profesor->turn ?>"><?= constant("_DICT_")["turn"][$this->profesor->turn] ?></option>
+                                            <option value="<?= $this->profesor->turn ?>"><?= constant("dictionary")["turn"][$this->profesor->turn] ?></option>
                                             <?php if($this->profesor->turn == 0){ ?>
                                                 <option value="Vespertino">Vespertino</option>
                                                 <option value="Mixto">Mixto</option>
@@ -359,7 +360,7 @@ $table = "<table id='concentrated' class='table table-bordered table-striped' st
                         <div class="window col-md-5">
                             <h4>Comprobante de Inscripción</h4>
                             <p>Da click aquí para descargar tu comprobatne de inscripción</p>
-                            <a class="btn btn-withe" href="<?= constant("CONFIG")["url"] ?>home/getProofOfRegistrationProfesor/<?= $_SESSION['campus']  . '/' . $_SESSION["user"] ?>" target="_blank"> <i class="fas fa-file-download"></i>  Descargar documento</a>
+                            <a class="btn btn-withe" href="<?= constant("URL") ?>home/getProofOfRegistrationProfesor/<?= $_SESSION['campus']  . '/' . $_SESSION["user"] ?>" target="_blank"> <i class="fas fa-file-download"></i>  Descargar documento</a>
                         </div>
                         <div class="window col-md-5">
                             <h4>Concentrado de alumnos inscritos</h4>
@@ -398,8 +399,8 @@ $table = "<table id='concentrated' class='table table-bordered table-striped' st
         </section>
         <?php include_once("structure/views/footer.php"); ?>
     </div>
-<script src="<?= constant("CONFIG")["url"] ?>resources/frameworks/particles.min.js"></script>
-<script type="text/javascript" src="<?= constant("CONFIG")["url"] ?>resources/js/excelExport.js"></script>
+<script src="<?= constant("URL") ?>resources/frameworks/particles.min.js"></script>
+<script type="text/javascript" src="<?= constant("URL") ?>resources/js/excelExport.js"></script>
 <script>
 	particlesJS.load('aperture', Generalconfig.url + 'resources/assets/particles.json', function() {
 		console.log('callback - particles.js config loaded');
@@ -548,12 +549,12 @@ $table = "<table id='concentrated' class='table table-bordered table-striped' st
             $('html, body').animate({
                 scrollTop: $(`#app`).offset().top - $("#menu").height()
             }, 1000);
-            $("body").css("overflow", "hidden");
+            $("body").css("overflow-y", "hidden");
             $("#setScreen").val("Soltar pantalla");
             $("#webapp").css("height", "100vh");
             screenFlag = true;
         }else{
-            $("body").css("overflow", "auto");
+            $("body").css("overflow-y", "auto");
             $("#setScreen").val("Fijar pantalla");
             $("#webapp").css("height", "150vh");
             screenFlag = false;

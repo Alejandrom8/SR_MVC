@@ -116,7 +116,7 @@ class User{
             $allowedTypes = ['image/jpg', 'image/jpeg', 'image/png'];
 
             if(in_array($photo['type'], $allowedTypes)){
-                if($photo['size'] <= (int) constant("CONFIG")['quantities']['photoSize']){
+                if($photo['size'] <= (int) constant("quantities")['photoSize']){
 
                     $type = explode('/', $photo['type']);
                     $type = $type[1];

@@ -6,10 +6,16 @@ body{
   padding:0;
   border:0;
 }
+.shapes{
+  width:100%;
+  height:auto;
+}
+
 .layer{
   height:100%;
   position:absolute;
 }
+
 .layer.back{
   width:100%;
   top:0;
@@ -43,7 +49,7 @@ body{
 
 .layer.front .col-md-6.banderin{
   /* width:55%; */
-  max-width:55%;
+  max-width:50%;
   flex:0 0 55%;
 }
 .layer.front .col-md-6.margen{
@@ -52,7 +58,7 @@ body{
   flex:0 0 45%;
 }
 .banderin{
-  height:100vh;
+  height:110vh;
   /* background-color:rgba(0,0,0,0.5); */
   display:flex;
   align-items:center;
@@ -90,6 +96,7 @@ body{
 }
 .front .margen{
   height:auto;
+  /* min-height:120vh; */
   padding:5%;
   padding-left:3%;
   padding-right:3%;
@@ -163,4 +170,16 @@ body{
   .ondesktop-title{
     display:none;
   } */
+}
+#designedBy{
+  background:#333;
+  color:#999;
+  display:flex;
+  justify-content:space-around;
+  height:8vh;
+  padding:1% 0;
+}
+
+#designedBy p{
+  margin:0 auto;
 }

@@ -28,7 +28,7 @@ class Welcome extends Controller{
     }
 
     public function askForRegistredCampus(){
-        $options = constant("CONFIG")["campus"]["registredCampus"];
+        $options = constant("campus");
         $optionsHTML = "";
         foreach($options as $op){
             $campusID = $op["plantel"];

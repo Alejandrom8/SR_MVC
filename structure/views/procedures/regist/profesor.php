@@ -21,7 +21,7 @@
                         </p>
                         <br>
                         <center>
-                        <img width="40%" height="40%" src="<?= constant("CONFIG")["url"] ?>resources/images/unamN.png">
+                        <img width="40%" height="40%" src="<?= constant("URL") ?>resources/images/unamN.png">
                         </center>
                       </div>
                     </div>
@@ -79,10 +79,10 @@
                                 <div  class="foto-cont-2">
                                     <center>
                                         <label id="preview" for="file">
-                                          <img src="<?= constant('CONFIG')['url']?>resources/images/defaultPhoto.png" width="60%" height="40%">
+                                          <img src="<?= constant("URL") ?>resources/images/defaultPhoto.png" width="60%" height="40%">
                                         </label>
                                     </center>
-                                    <input type="hidden" name="MAX_FILE_SIZE" value="<?= constant("CONFIG")["quantities"]['photoSize'] ?>" />
+                                    <input type="hidden" name="MAX_FILE_SIZE" value="<?= constant("quantities")['photoSize'] ?>" />
                                     <div class="input-group" style="margin-top:10%;">
                                         <div class="custom-file">
                                             <input type="file" class="custom-file-input" id="file" name="file" aria-describedby="inputGroupFileAddon01">
@@ -189,7 +189,7 @@
         </div><!-- Ends swiper container -->
     </section>
 </div><!-- Ends regist container -->
-<!-- <script scr="<?= constant("CONFIG")["url"] ?>resources/js/regist.js"></script> -->
+<!-- <script scr="<?= constant("URL") ?>resources/js/regist.js"></script> -->
 <script>
 
     function simpleFilter(varToValidate){

@@ -3,15 +3,16 @@
 <title>Home</title>
     <?php include_once('structure/views/head.php'); ?>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="<?= constant("CONFIG")["url"] ?>resources/stylesheet/home.css">
+    <link rel="stylesheet" type="text/css" href="<?= constant("URL") ?>resources/stylesheet/home.css">
 </head>
 <body>
     <div class="webpage">
         <header id="menu">
             <ul class="nav_logos">
-                <li><img class="logo" src="<?= constant("CONFIG")["url"] ?>resources/images/escudounam_blanco.png" alt="UNAM"></li>
-                <li><img class="logo" src="<?= constant("CONFIG")["url"] ?>resources/images/jovenesblanco.png" alt="UNAM"></li>
-                <li><img class="logo" src="<?= constant("CONFIG")["url"] ?>resources/images/leopardos.png" alt="UNAM"></li>
+                <li><img class="logo" src="<?= constant("URL") ?>resources/images/escudounam_blanco.png" alt="UNAM"></li>
+                <li><img class="logo" src="<?= constant("URL") ?>resources/images/jovenesblanco.png" alt="UNAM"></li>
+                <li><img class="logo" src="<?= constant("URL") ?>resources/images/leopardos.png" alt="UNAM"></li>
+                <li><span class="logoTitle">ENP <?= $_SESSION['campus'] ?></span></li>
             </ul>
             <span><?= $this->user->name ?></span>
             <img class="user-photo" src="<?= $this->user->photo ?>" alt="usuario">
@@ -21,8 +22,8 @@
             <section id="movibleSection">
                 <a class="button-href" href="#"><button><i class="fas fa-home"></i> Inicio</button></a>
                 <a class="button-href" href="#" onclick="showUpdateWindow();"><button>Actualizar datos</button></a>
-                <a class="button-href" href="<?= constant("CONFIG")["url"] . "home/getProofOfRegistration/" . $_SESSION["campus"] . "/" . $this->user->accaunt ?>" target="_blank"><button>Comprobante</button></a>
-                <a class="button-href" href="<?= constant("CONFIG")["url"] ?>goout"><button><i class="fas fa-sign-out-alt"></i> Salir</button></a>
+                <a class="button-href" href="<?= constant("URL") . "home/getProofOfRegistration/" . $_SESSION["campus"] . "/" . $this->user->accaunt ?>" target="_blank"><button>Comprobante</button></a>
+                <a class="button-href" href="<?= constant("URL") ?>goout"><button><i class="fas fa-sign-out-alt"></i> Salir</button></a>
             </section>
         </header>
         <section id="aperture">
@@ -33,7 +34,7 @@
                 <h4 class="card-title">Descarga tu comprobante</h4>
                 <p class="card-text">Da click aquí para obtener tu comprobante en formato PDF.</p>
                 <br>
-                <a href="<?= constant("CONFIG")["url"] . "home/getProofOfRegistration/" . $_SESSION["campus"] . "/" . $this->user->accaunt ?>" class="btn btn-primary btn-block" target="_blank">Descargar <i class="fas fa-file-download"></i></a>
+                <a href="<?= constant("URL") . "home/getProofOfRegistration/" . $_SESSION["campus"] . "/" . $this->user->accaunt ?>" class="btn btn-primary btn-block" target="_blank">Descargar <i class="fas fa-file-download"></i></a>
             </div>
             <div class="window">
                     <h4 class="card-title">Actualiza tus datos</h4>
@@ -41,6 +42,22 @@
                     <br>
                     <a href="#" class="btn btn-primary btn-block" onclick="showUpdateWindow();">Actualizar <i class="fas fa-pen-square"></i></a>
             </div>
+        </section>
+        <section id="conferences">
+          <div class="row">
+            <div class="col-md-6">
+            </div>
+            <div class="col-md-6 textDiv">
+              <h3>Videoconferencias pasadas</h3>
+              <p>
+                A lo largo de este programa, tus profesores podrán invitarte a participar en
+                diversas actividades que te ayudaran a saciar tu curiosidad cientifica, entre estas actividades
+                se encuentran las videofonferencias que se realizan con diferentes investigadores profesionales
+                en su materia. Te invitamos a visitar el canal de YouTube en el que podrás encontrar más conferencias
+                como esta.
+              </p>
+            </div>
+          </div>
         </section>
         <section id="update-section">
             <button id="close-button" onclick="showUpdateWindow();">
@@ -62,7 +79,7 @@
                                           <img src="<?= $this->user->photo ?>" width="60%" height="40%">
                                         </label>
                                     </center>
-                                    <input type="hidden" name="MAX_FILE_SIZE" value="<?= constant("CONFIG")["quantities"]['photoSize'] ?>" />
+                                    <input type="hidden" name="MAX_FILE_SIZE" value="<?= constant("quantities")['photoSize'] ?>" />
                                     <div class="input-group" style="margin-top:10%;">
                                         <div class="custom-file">
                                             <input type="file" class="custom-file-input" id="file" name="file" aria-describedby="inputGroupFileAddon01">
@@ -101,8 +118,8 @@
                         <div class="form-group">
                             <label for="turn">Turno:</label>
                             <select id="turn" name="turn" class="form-control" required>
-                                <option value="<?= $this->uei["turn"] ?>"><?= constant("_DICT_")["turn"][$this->uei["turn"]] ?></option>
-                                <option value="<?= (int) ! (boolean) (int) $this->uei["turn"] ?>"><?=  constant("_DICT_")["turn"][(int) ! (boolean) (int) $this->uei["turn"]]?></option>
+                                <option value="<?= $this->uei["turn"] ?>"><?= constant("dictionary")["turn"][$this->uei["turn"]] ?></option>
+                                <option value="<?= (int) ! (boolean) (int) $this->uei["turn"] ?>"><?=  constant("dictionary")["turn"][(int) ! (boolean) (int) $this->uei["turn"]]?></option>
                             </select>
                         </div>
                         <div class="form-group">
@@ -253,7 +270,7 @@
         </section>
         <?php include_once("structure/views/footer.php"); ?>
     </div>
-<script src="<?= constant("CONFIG")["url"] ?>resources/frameworks/particles.min.js"></script>
+<script src="<?= constant("URL") ?>resources/frameworks/particles.min.js"></script>
 <script>
 	particlesJS.load('aperture', Generalconfig.url + 'resources/assets/particlesV2.json', function() {
 		console.log('callback - particles.js config loaded');

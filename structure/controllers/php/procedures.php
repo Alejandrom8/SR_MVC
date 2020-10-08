@@ -27,7 +27,7 @@ class Procedures extends Controller{
     public static function canStillRegister(){
         $currentDate = new DateTime(strftime('%y-%m-%d'));
 
-        $endDateConfig = constant("CONFIG")["dates"]["endDate"];
+        $endDateConfig = constant("dates")["endDate"];
         $endDate = new DateTime(
             $endDateConfig["year"] . '-' .
             $endDateConfig["month"] . '-' . 
@@ -88,11 +88,14 @@ class Procedures extends Controller{
                 $include .= "login/" . $user;
             }else{
                 if($validated){
-                    $this->prepareUserInfo($user);//si los profesores quieren quitar el login, se tendra que eliminar este paso.
-                    $this->view->colleges = $this->getColleges("normal");
-                    $include .= "regist/" . $user;
+                    if(Procedures::canStillRegister()){
+                        $this->prepareUserInfo($user);//si los profesores quieren quitar el login, se tendra que eliminar este paso.
+                        $this->view->colleges = $this->getColleges("normal");
+                        $include .= "regist/" . $user;
+                    }else{
+                        print("<script>alert('El periodo de registro ha concluido');window.location='". constant("URL") ."'</script>");
+                    }
                 }else{
-                    echo "Campus: " . $_SESSION["campus"] . " usuario: " . $_SESSION["user"] . " username: " . $_SESSION["username"];
                     print("<script>
                             alert('acceso denegado');
                             window.history.back();
@@ -267,13 +270,12 @@ class Procedures extends Controller{
             $registHandler = $this->model->consultRegist($nocta);
             if($registHandler->success){
                 //the user is registered
-
                 //setting the session variables
                 $this->setUser($nocta);
                 $this->setUserName($loginHandler->data);
 
                 $res->success = true;
-                $res->onSuccessEvent = constant("CONFIG")["url"] . "home/student";//send it home
+                $res->onSuccessEvent = constant("URL") . "home/student";//send it home
             }else{
                 //the user isn't registered
                 if($registHandler->errors === 1){
@@ -283,7 +285,7 @@ class Procedures extends Controller{
                     
                     $res->errors = 202;
                     $res->messages = $registHandler->messages;
-                    $res->onSuccessEvent = constant("CONFIG")["url"] . "procedures/setSession/regist/" . $this->getCampus() . "/student";
+                    $res->onSuccessEvent = constant("URL") . "procedures/setSession/regist/" . $this->getCampus() . "/student";
                 
                 }else{
                     $res->errors = $registHandler->errors;
@@ -352,7 +354,7 @@ class Procedures extends Controller{
                 if(!$searchExistingRegistry->data){
                     $studentsRegistered = $this->model->countStudentsRegistered($data["profesor"]);
                     if($studentsRegistered->success){
-                        if($studentsRegistered->data <= (int) constant("CONFIG")["quantities"]["studPerTeacher"]){
+                        if($studentsRegistered->data <= (int) constant("quantities")["studPerTeacher"]){
                             //setting the data
                             $registry = new Student();
 
@@ -383,7 +385,7 @@ class Procedures extends Controller{
                                 $registHandler = $this->model->registStudent($registry);
                                 if($registHandler->success){
                                     $res->success = true;
-                                    $res->onSuccessEvent = constant("CONFIG")["url"] . "home/student";
+                                    $res->onSuccessEvent = constant("URL") . "home/student";
                                 }else{
                                     $res->errors = $registHandler->errors;
                                     $res->messages = "No se logro completar correctamente el registro";
@@ -467,10 +469,10 @@ class Procedures extends Controller{
                 if($updateHandler->success){
                     $res->success = true;
                     $res->messages = $updateHandler->messages;
-                    $res->onSuccessEvent = constant("CONFIG")["url"] . "home/student";
+                    $res->onSuccessEvent = constant("URL") . "home/student";
                 }else{
                     $res->errors = [$updateHandler->errors, $updateHandler->messages];
-                    array_push($res->messages, "No se logro completar correctamente La actulización.");
+                    array_push($res->messages, "No se logro completar correctamente La actulización. Una posible causa es que no hayas realizado ningún cambio.");
                 }
             }else{
                 $res->errors = $consultRegist->errors;
@@ -534,7 +536,7 @@ class Procedures extends Controller{
                 if($updateHandler->success){
                     $res->success = true;
                     $res->messages = $updateHandler->messages;
-                    $res->onSuccessEvent = constant("CONFIG")["url"] . "home/profesor";
+                    $res->onSuccessEvent = constant("URL") . "home/profesor";
                 }else{
                     $res->errors = [$updateHandler->errors, $updateHandler->messages];
                     array_push($res->messages, "No se logro completar correctamente La actulización.");
@@ -559,12 +561,12 @@ class Procedures extends Controller{
         $validate = App::varValidate($user, $pass);
         if($validate){
             if($user === "coordinador_jhi"){
-                if(hash('sha512', $pass) === constant("CONFIG")["adminPass"]){
+                if(hash('sha512', $pass) === constant("adminPass")){
                     $this->setUser("god");
                     $this->setTypeOfUser("admin");
                     $this->setCampus("any");
                     $res->success = true;
-                    $res->onSuccessEvent = constant('CONFIG')["url"] . "admon/init";
+                    $res->onSuccessEvent = constant("URL") . "admon/init";
                 }else{
                     $res->errors = 0;
                     $res->messages = "Contraseña incorrecta";
@@ -602,9 +604,9 @@ class Procedures extends Controller{
 
                 if($registryHandler->data){
                     //si existe un registro del profesor
-                    $res->onSuccessEvent = constant("CONFIG")["url"] . "home/profesor";
+                    $res->onSuccessEvent = constant("URL") . "home/profesor";
                 }else{
-                    $res->onSuccessEvent = constant("CONFIG")["url"] . "procedures/setSession/regist/" . $this->getCampus() . "/profesor";
+                    $res->onSuccessEvent = constant("URL") . "procedures/setSession/regist/" . $this->getCampus() . "/profesor";
                 }
 
             }else{
@@ -662,7 +664,7 @@ class Procedures extends Controller{
                         $registHandler = $this->model->registProfesor($p);
                         if($registHandler->success){
                             $res->success = true;
-                            $res->onSuccessEvent = constant("CONFIG")["url"] . "home/profesor";
+                            $res->onSuccessEvent = constant("URL") . "home/profesor";
                         }else{
                             $res->errors = $registHandler->errors;
                             $res->messages = "No se logro completar correctamente el registro";

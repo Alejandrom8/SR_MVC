@@ -15,7 +15,7 @@ class Goout extends Controller{
         }
         session_destroy();
         if($verbose){
-            print("<script>window.location = '" . constant("CONFIG")["url"] . "';</script>'");
+            print("<script>window.location = '" . constant("URL") . "';</script>'");
         }
     }
 }

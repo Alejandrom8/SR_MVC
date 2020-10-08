@@ -6,6 +6,7 @@
 .container-own {
   background-image: url(../images/unambiblio2.jpg);
   background-size: cover;
+  background-attachment: fixed;
   position: absolute;
   width: 100%;
   height: auto;

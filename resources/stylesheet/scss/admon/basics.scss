@@ -1,27 +1,25 @@
 #app{
-    position: absolute;
-    top:8%;
     width:100%;
-    height:auto;
+    height:150vh;
 
     aside{
         width:20%;
-        height:auto;
+        height:100%;
         float:left;
         min-height: 92vh;
-        background: #1488CC;  /* fallback for old browsers */
-            background: -webkit-linear-gradient(to right, #2B32B2, #1488CC);  /* Chrome 10-25, Safari 5.1-6 */
-            background: linear-gradient(to right, #2B32B2, #1488CC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-        padding:1% 0;
-        border-radius:5px;
+        // background: #1488CC;  /* fallback for old browsers */
+        //     background: -webkit-linear-gradient(to right, #2B32B2, #1488CC);  /* Chrome 10-25, Safari 5.1-6 */
+        //     background: linear-gradient(to right, #2B32B2, #1488CC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        background: #9D50BB;  /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #6E48AA, #9D50BB);  /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #6E48AA, #9D50BB); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        
+        padding:3% 1%;
         overflow:hiiden;
 
         .table{
             color:#fff;
             // background-color:rgba(0,0,0,0.1);
-            thead{
-                background-color:rgba(0,0,0,0.1);
-            }
             .arrow-right {
                 width: 0; 
                 height: 0; 
@@ -71,8 +69,8 @@
 
     .window{
         width:80%;
-        height:92vh;
-        max-height:92vh;
+        height:auto;
+        max-height:150vh;
         overflow-y:scroll;
         display:none;
         float:left;
@@ -86,23 +84,6 @@
             margin:4%;
             width:92%;
             // background-color:#eee;
-
-            .table-head{
-                // background: #11998e;  /* fallback for old browsers */
-                // background: -webkit-linear-gradient(to right, #38ef7d, #11998e);  /* Chrome 10-25, Safari 5.1-6 */
-                // background: linear-gradient(to right, #38ef7d, #11998e); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-                background: #00F260;  /* fallback for old browsers */
-                background: -webkit-linear-gradient(to right, #0575E6, #00F260);  /* Chrome 10-25, Safari 5.1-6 */
-                background: linear-gradient(to right, #0575E6, #00F260); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-                
-
-                font-weight:bold;
-                font-size:0.9rem;
-                color:#fff;
-                width:100%;
-                padding:1% 5%;
-                border-radius:20px;
-            }
 
             .table{
                 margin:2% 0%;
@@ -169,5 +150,42 @@
 
     .instructions{
         color:#777;
+    }
+}
+
+.table-head{
+    // background: #11998e;  /* fallback for old browsers */
+    // background: -webkit-linear-gradient(to right, #38ef7d, #11998e);  /* Chrome 10-25, Safari 5.1-6 */
+    // background: linear-gradient(to right, #38ef7d, #11998e); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #00F260;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #0575E6, #00F260);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #0575E6, #00F260); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
+
+    font-weight:bold;
+    font-size:0.9rem;
+    color:#fff;
+    width:100%;
+    padding:1% 5%;
+    border-radius:20px;
+}
+
+#CDP{
+    #concentrated{
+        h3, h4{
+            height:15vh;
+            padding:4% 0%;
+        }
+
+        .tab-container{
+            // height:100vh;
+            margin-top:10%;
+            margin-bottom:10%;
+            // overflow-y: scroll;
+        }
+    
+        table{
+            border-bottom:8px solid #333;
+        }
     }
 }

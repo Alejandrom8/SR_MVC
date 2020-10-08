@@ -1,11 +1,9 @@
-<files .htaccess>
-  order allow,deny
-  deny from all
-</files>
+<IfModule mod_rewrite.c>
+	RewriteEngine On
 
-RewriteEngine On
-
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-l
-RewriteRule ^(.*)$ index.php?url=$1 [L,QSA]
+	RewriteCond ${REQUEST_FILENAME} !.*\.(gif|GIF|jpg|JPG|jpeg|JPEG|css|CSS|js|JS)$
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-l
+	RewriteRule ^(.*)$ index.php?url=$1 [L,QSA]
+</IfModule>

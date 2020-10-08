@@ -13,12 +13,12 @@
 <meta name="keyword" content="enp8" />
 <meta name="keyword" content="ciencias experimentales" />
 
-<link rel="stylesheet" type="text/css" href="<?= constant("CONFIG")["url"] ?>resources/frameworks/bootstrap/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="<?= constant("CONFIG")["url"] ?>resources/stylesheet/constant.css">
-<link rel="shortcut icon" type="image/png" href="<?= constant("CONFIG")["url"] ?>resources/images/jovenesblanco.png">
+<link rel="stylesheet" type="text/css" href="<?= constant("URL") ?>resources/frameworks/bootstrap/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="<?= constant("URL") ?>resources/stylesheet/constant.css">
+<link rel="shortcut icon" type="image/png" href="<?= constant("URL") ?>resources/images/jovenesblanco.png">
 
-<script src="<?= constant("CONFIG")["url"] ?>config/config.js"></script>
-<script src="<?= constant("CONFIG")["url"] ?>resources/frameworks/jquery-3.3.1.min.js"></script>
-<!-- <script src="<?= constant("CONFIG")["url"] ?>resources/frameworks/queryLoading2.min.js"></script> -->
-<!-- <script src="<?= constant("CONFIG")["url"] ?>resources/frameworks/Loader.js"></script> -->
-<script src="<?= constant("CONFIG")["url"] ?>resources/frameworks/sweetalert/dist/sweetalert.min.js"></script>
+<script src="<?= constant("URL") ?>config/config.js"></script>
+<script src="<?= constant("URL") ?>resources/frameworks/jquery-3.3.1.min.js"></script>
+<!-- <script src="<?= constant("URL") ?>resources/frameworks/queryLoading2.min.js"></script> -->
+<!-- <script src="<?= constant("URL") ?>resources/frameworks/Loader.js"></script> -->
+<script src="<?= constant("URL") ?>resources/frameworks/sweetalert/dist/sweetalert.min.js"></script>

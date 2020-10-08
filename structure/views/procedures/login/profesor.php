@@ -2,9 +2,9 @@
     <div class="margen">
         <div class="title col-md-12">
             <div class="logo-cont">
-                <img src="<?= constant("CONFIG")["url"] ?>resources/images/unamN.png">
-                <img src="<?= constant("CONFIG")["url"] ?>resources/images/jovenes.png">
-                <!-- <img src="<?= constant("CONFIG")["url"] ?>resources/images/leopardos.png"> -->
+                <img src="<?= constant("URL") ?>resources/images/unamN.png">
+                <img src="<?= constant("URL") ?>resources/images/jovenes.png">
+                <!-- <img src="<?= constant("URL") ?>resources/images/leopardos.png"> -->
             </div>
             <br>
             <h4>Iniciar sesión</h4>

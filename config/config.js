@@ -1,6 +1,6 @@
 const Generalconfig = {
     "estado": "mantenimiento",
-    "url" : "http://localhost/SR_MVC/",
+    "url" : "http://127.0.0.1/SR_MVC/",
     "fechas": {
         "fecha de apertura": {
             "dia": 29, 
@@ -10,7 +10,7 @@ const Generalconfig = {
         "fecha de cierre": {
             "dia": 29, 
             "mes": 12,
-            "año": 2019
+            "año": 2020
         }
     },
     "limites": {

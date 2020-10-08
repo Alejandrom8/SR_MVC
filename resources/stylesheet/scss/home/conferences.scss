@@ -1,0 +1,24 @@
+#conferences{
+    width:100%;
+    height:auto;
+    min-height:80vh;
+    // background:#4285f4;
+    color:#222;
+
+    h2,h3,h4{
+        text-align: center;
+        font-family:"opensans bold";
+        padding:2% 4%;
+    }
+
+    .textDiv{
+        padding:7%;
+
+        p{
+            text-align:justify;
+            padding:2% 0;
+            line-height:1.6rem;
+            text-rendering: optimizeLegibility;
+        }
+    }
+}

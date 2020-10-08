@@ -9,8 +9,12 @@ class Admon extends Controller{
 
     public function init(){
         if(App::varValidate($this->getUser(), $this->getCampus(),$this->getTypeOfUser())){
+            //Not registered campus
             $campus = $this->model->getCampus();
             $this->view->campus = $campus->data;
+            $this->view->registeredCampus = constant("campus");
+            //Getting the geeral statistics data
+            // $this->view->byTurn = ($this->model->byTurn($this->registeredCampus))->data;
             $this->render();
         }else{
             $this->prepareLogin();
@@ -39,11 +43,28 @@ class Admon extends Controller{
         $pro = new Procedures();
         $pro->loadModel('procedures');
         $campus = $pro->registeredCampus();
-        echo json_encode($this->model->generalCount($campus->data));
+        $this->registeredCampus = $campus->data;
+        $registeredCampus = $this->model->generalCount($campus->data);
+        // $this->view->generalStatistics = $registeredCampus->data;
+        echo json_encode($registeredCampus);
     }
 
     public function searcher(){
         echo json_encode($_REQUEST);
+    }
+
+    public function createDataBase(){
+        $res = new ServiceResult();
+        $campus = $this->desinfect($_POST["campus"]);
+        $handler = $this->model->makeDataBase($campus);
+        if($handler->success){  
+            $res->success = true;
+            $res->messages = ["Se ha creado la base de datos para el campus."];
+        }else{
+            $res->errors = $handler->errors;
+            $res->messages = ["No logro crearse la base de datos"];
+        }
+        echo json_encode($res);
     }
 
     public function registCalifTable(){
@@ -172,5 +193,113 @@ class Admon extends Controller{
             $res->messages = ["No se ha logrado colocar el estado del plantel como 'Activo'"];
         }
         echo json_encode($res);
+    }
+
+    /**
+     * @param {array} $params : Just with two values, the campus that wants the user get
+     */
+    public function getAllTheStudents($params){
+        if(isset($params)){
+            if($params[1] == "s"){
+                $campus = $params[0];
+                $getter = $this->model->getAllTheStudentsRegistered($campus);
+            }else{
+                $res = new ServiceResult();
+                $res->messages = [];
+                $campus = constant("campus");
+                $studentsPerCampus = [];
+                foreach($campus as $key => $c){
+                    $students = $this->model->getAllTheStudentsRegistered($c["plantel"]);
+                    if(!$students->success){
+                        array_push($res->messages, $students->errors);
+                    }else{
+                        $result = ["campus" => $c["plantel"], "students" => $students->data];
+                        array_push($studentsPerCampus, $result);
+                    }
+                }
+                $res->data = $studentsPerCampus;
+                $res->messages = App::makeItLegible($res->messages);
+                $res->success = true;
+                $getter = $res;
+            }
+            echo json_encode($getter);
+        }
+    }
+
+    public function getAllTheProfesorsAndStudents($params){
+        if(isset($params)){
+            $res = new ServiceResult();
+            $res->messages = [];
+            $res->errors = [];
+
+            if($params[1] == "s"){
+                $campus = $params[0];
+                $profesors =  $this->model->getAlltheProfesors($campus);
+                if($profesors->success){
+                    $result = [];
+                    foreach($profesors->data as $prof){
+                        $stds = $this->model->getStudentsPerProfesor($campus, $prof["rfc"]);
+                        if($stds->success){
+                            $insert = [
+                                "nombre" => $prof["nombre"],
+                                "rfc" => $prof["rfc"],
+                                "students" => $stds->data
+                            ];
+                            array_push($result, $insert);
+                        }else{
+                            array_push($res->messages, $stds->errors);
+                        }
+                    }
+                    $res->data = $result;
+                    $res->success = true;
+                }else{
+                    array_push($res->errors, $profesor->errors);
+                    array_push($res->messages, "Problema obteniendo los profesores de este plantel");
+                    //do something if the profesors consult breaks
+                }
+                $res->errors = App::makeItLegible($res->errors);
+                $res->messges = App::makeItLegible($res->messages);
+            }else{
+                $campus = constant("campus");
+                $result = [];
+
+                foreach($campus as $key => $c){
+                    $profesors =  $this->model->getAlltheProfesors($c["plantel"]);
+                    if($profesors->success){
+                        $partialResult = [];
+                        foreach($profesors->data as $prof){
+                            $stds = $this->model->getStudentsPerProfesor($c["plantel"], $prof["rfc"]);
+                            if($stds->success){
+                                $insert = [
+                                    "nombre" => $prof["nombre"],
+                                    "rfc" => $prof["rfc"],
+                                    "students" => $stds->data
+                                ];
+                                array_push($partialResult, $insert);
+                            }else{
+                                array_push($res->messages, $stds->errors);
+                            }
+                        }
+                        $campus = ["campus" => $c["plantel"], "data" => $partialResult];
+                        array_push($result, $campus);
+                    }else{
+                        array_push($res->errors, $profesor->errors);
+                        array_push($res->messages, "Problema obteniendo los profesores de este plantel");
+                    }
+                }
+
+                $res->data = $result;
+                $res->errors = App::makeItLegible($res->errors);
+                $res->messages = App::makeItLegible($res->messages);
+                $res->success = true;
+            }
+            
+            echo json_encode($res);
+        }
+    }
+
+    public function countAllByTurn(){
+        $totals = $this->model->countByTurn();
+        echo json_encode($totals, JSON_UNESCAPED_UNICODE);
     }
 }

@@ -405,7 +405,8 @@ class ProceduresModel extends Model{
                            '$r->registrationDate',
                            '$photoName',
                            '$photoPath',
-                           0)";
+                           0,
+                           1)";
             $e = $this->connection->beta()->prepare($insert);
             $e->execute();
 
@@ -464,12 +465,13 @@ class ProceduresModel extends Model{
                 '$p->startDate',
                 '$p->email',
                 '$p->street',
-                $p->postalCode,
+                '$p->postalCode',
                 '$p->colony',
                 '$p->townHall',
                 '$p->city',
                 '$photoName',
-                '$photoPath'
+                '$photoPath',
+                1
             )";
             $e = $this->connection->beta()->prepare($sql);
             $e->execute();

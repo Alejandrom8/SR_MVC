@@ -6,7 +6,7 @@
   Cada que se introdusca una URL en el navegador, tendrá que seguir
   el siguiente formato:
 
-      dominio/carpeta principal/clase/metodo/parametros
+      dominio/carpeta principal/objeto/metodo/parametros
 */
 
 require_once("structure/controllers/php/manageError.php");
@@ -69,7 +69,7 @@ class App{
         //acceso denegado
         print("<script>
                   alert('acceso denegado');
-                  window.location= '" . constant("CONFIG")["url"] . "';
+                  window.location= '" . constant("URL") . "';
               </script>");
       }
     }else{

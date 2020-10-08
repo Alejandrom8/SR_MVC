@@ -15,5 +15,5 @@
             que hicieron su servicio social en la prepa 8.
         </p>
     </div>
-    <img class="logo-agr" src="<?= constant("CONFIG")["url"] ?>resources/images/leopardos.png" alt="prepa 8">
+    <img class="logo-agr" src="<?= constant("URL") ?>resources/images/leopardos.png" alt="prepa 8">
 </footer>

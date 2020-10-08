@@ -72,6 +72,10 @@ class AdmonModel extends Model{
         }
     }
 
+    public function byTurn(){
+        
+    }
+
     public function getCampus(){
         $res = new ServiceResult();
         try{    
@@ -85,6 +89,28 @@ class AdmonModel extends Model{
             }
             $res->data = $campus;
             $res->success = true;
+            $e->closeCursor();
+            $e = null;
+
+        }catch(PDOException $e){
+            $res->errors = $e;
+        }finally{
+            return $res;
+        }
+    }
+
+    public function makeDataBase($campus){
+        $res = new ServiceResult();
+        try{    
+            $db = "srjhi_p" . $campus;
+            $sql = "CREATE DATABASE $db CHARACTER SET UTF8 COLLATE utf8_general_ci";
+            $e = $this->connection->alfa()->prepare($sql);
+            $e->execute();
+            
+            if($e->rowCount() > 0){
+                $res->success = true;   
+            }
+
             $e->closeCursor();
             $e = null;
 
@@ -192,7 +218,8 @@ class AdmonModel extends Model{
                 `registration_date` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
                 `photo_name` varchar(25) COLLATE utf8_unicode_ci DEFAULT NULL,
                 `photo_path` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
-                `estancia_corta` int(1) NOT NULL DEFAULT '0'
+                `estancia_corta` int(1) NOT NULL DEFAULT '0',
+                `registro` int(1) NOT NULL DEFAULT '0',
               ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;";
 
             $e = $con->beta()->prepare($sql);
@@ -231,7 +258,8 @@ class AdmonModel extends Model{
                 `alcaldia` varchar(40) COLLATE utf8_spanish2_ci NOT NULL,
                 `ciudad` varchar(20) COLLATE utf8_spanish2_ci NOT NULL,
                 `photo_name` varchar(25) COLLATE utf8_spanish2_ci DEFAULT NULL,
-                `photo_path` varchar(100) COLLATE utf8_spanish2_ci DEFAULT NULL
+                `photo_path` varchar(100) COLLATE utf8_spanish2_ci DEFAULT NULL,
+                `registro` int(1) NOT NULL DEFAULT '0',
               ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci;";
 
             $e = $con->beta()->prepare($sql);
@@ -257,6 +285,169 @@ class AdmonModel extends Model{
             $e->closeCursor();
             $e = null;
         }catch(PDOException$e){
+            $res->errors = $e;
+        }finally{
+            return $res;
+        }
+    }
+
+    public function getAllTheStudentsRegistered($campus){
+        $res = new ServiceResult();
+        try{
+            $db = "srjhi_p" . $campus;
+            $ch = "utf8";
+            $con = new Connection($db, $ch);
+            $sql = "SELECT nombre, nocta FROM students ORDER BY nombre ASC";
+            $e = $con->beta()->prepare($sql);
+            $e->execute();
+
+            $students = [];
+
+            while($row = $e->fetch(PDO::FETCH_ASSOC)){
+                $name = $row["nombre"];
+                $nocta = $row["nocta"];
+                $std = ["nombre" => $name, "nocta" => $nocta];
+                array_push($students, $std);
+            }
+
+            $res->data = $students;
+            $res->success = true;
+
+            $e->closeCursor();
+            $e = null;
+
+        }catch(PDOException $e){
+            $res->errors = $e;
+        }finally{
+            return $res;
+        }
+    }
+
+    public function getAlltheProfesors($campus){
+        $res = new ServiceResult();
+        try{
+            $db = "srjhi_p" . $campus;
+            $ch = "utf8";
+            $con = new Connection($db, $ch);
+            $sql = "SELECT nombre,rfc FROM prof ORDER BY nombre ASC";
+            $e = $con->beta()->prepare($sql);
+            $e->execute();
+
+            $profesors = [];
+
+            while($row = $e->fetch(PDO::FETCH_ASSOC)){
+                $nombre = $row["nombre"];
+                $rfc = $row["rfc"];
+                $prof = ["nombre" => $nombre, "rfc" => $rfc];
+                array_push($profesors, $prof);
+            }
+
+            $res->data = $profesors;
+            $res->success = true;
+
+            $e->closeCursor();
+            $e = null;
+
+        }catch(PDOExcpetion $e){
+            $res->errors = $e;
+        }finally{
+            return $res;
+        }
+    }
+
+    public function getStudentsPerProfesor($campus, $rfc){
+        $res = new ServiceResult();
+        try{
+            $db = "srjhi_p" . $campus;
+            $ch = "utf8";
+            $con = new Connection($db, $ch);
+            $sql = "SELECT nombre, nocta FROM students WHERE prof = :rfc ORDER BY nombre ASC";
+            $e = $con->beta()->prepare($sql);
+            $e->bindParam(":rfc", $rfc);
+            $e->execute();
+
+            $students = [];
+
+            while($row = $e->fetch(PDO::FETCH_ASSOC)){
+                $nombre = $row["nombre"];
+                $nocta = $row["nocta"];
+                $std = ["nombre" => $nombre, "nocta" => $nocta];
+                array_push($students, $std);
+            }
+
+            $res->data = $students;
+            $res->success = true;
+
+            $e->closeCursor();
+            $e = null;
+
+        }catch(PDOExcpetion $e){
+            $res->errors = $e;
+        }finally{
+            return $res;
+        }
+    }
+
+    public function countByTurn(){
+        $res = new ServiceResult();
+        try{
+            $campus = constant("campus");
+
+            $sql = "SELECT count(*) as total FROM ";
+
+            $sqls = [
+                $sql . "students WHERE turno = 0", //matutino
+                $sql . "prof WHERE turno = 0", //profesores matutino
+                $sql . "students WHERE turno = 1", //vespertino
+                $sql . "prof WHERE turno = 1", //profesores vespertino
+                $sql . "prof WHERE turno = 2" //profesores mixtos
+            ];
+
+            $ch = "utf8";
+
+            $campusTotals = [];
+
+            foreach($campus as $c){
+                $db = "srjhi_p" . $c["plantel"];
+                $con = new Connection($db, $ch);
+
+                $totals = [];
+
+                foreach($sqls as $s){
+
+                    $e = $con->beta()->prepare($s);
+                    $e->execute();
+
+                    $data = $e->fetch(PDO::FETCH_ASSOC);
+                    $total = $data["total"];
+
+                    array_push($totals, $total);
+
+                    $e->closeCursor();
+                    $e = null;
+                }
+
+                $matutino = $totals[0] + $totals[1];
+                $vespertino = $totals[2] + $totals[3];
+                $mixto = $totals[4];
+
+                $total = [
+                    "campus" => $c["plantel"],
+                    "nombre" => $c["nombre"],
+                    "totales" => [
+                        "matutino" => $matutino,
+                        "vespertino" => $vespertino,
+                        "mixto" => $mixto
+                    ]
+                ];
+
+                array_push($campusTotals, $total);
+            }
+
+            $res->data = $campusTotals;
+            $res->success = true;
+
+        }catch(PDOException $e){
             $res->errors = $e;
         }finally{
             return $res;

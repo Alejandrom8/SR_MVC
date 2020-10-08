@@ -116,9 +116,9 @@ class HomeModel extends Model{
             $p->setCity($data["ciudad"]);
 
             if($data["photo_name"] != null){
-                $p->photo = constant("CONFIG")["photoPath"] . "p" . $campus . "/" . $data["photo_name"];
+                $p->photo = constant("photoPath") . "p" . $campus . "/" . $data["photo_name"];
             }else{
-                $p->photo = constant("CONFIG")["url"] . "resources/images/defaultPhoto.png";
+                $p->photo = constant("URL") . "resources/images/defaultPhoto.png";
             }
 
             $res->data = $p;
@@ -230,9 +230,9 @@ class HomeModel extends Model{
                 $std->setPhone($row["telcasa"]);
                 $std->setEmail($row["correo"]);
                 if($row["photo_name"] != null){
-                    $std->photo = constant("CONFIG")["photoPath"] . "p" . $campus . "/" .  $row["photo_name"];
+                    $std->photo = constant("photoPath") . "p" . $campus . "/" .  $row["photo_name"];
                 }else{
-                    $std->photo = constant("CONFIG")["url"] . "/resources/images/defaultPhoto.png";
+                    $std->photo = constant("URL") . "/resources/images/defaultPhoto.png";
                 }
                 array_push($students, $std);
             }
